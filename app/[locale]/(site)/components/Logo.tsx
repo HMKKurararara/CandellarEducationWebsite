@@ -16,7 +16,8 @@ export default function Logo({ className = '', size = 'md', showText = true, var
     xl: 'w-40 h-20'
   }
 
-  const logoSrc = variant === 'dark' ? '/logo-dark.svg' : '/logo-light.svg'
+  // Use the actual logo files you provided
+  const logoSrc = variant === 'dark' ? '/black and white.png' : '/transparent.png'
 
   return (
     <div className={`flex items-center ${className}`}>

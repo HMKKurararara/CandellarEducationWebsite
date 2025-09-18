@@ -22,9 +22,9 @@ export const metadata: Metadata = {
   keywords: 'Singapore education, AEIS, iPSLE, Cambridge English, tuition, Myanmar students',
   authors: [{ name: 'Candellar' }],
   icons: {
-    icon: '/favicon.svg',
-    shortcut: '/favicon.svg',
-    apple: '/favicon.svg',
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: '/transparent.png',
   },
   openGraph: {
     title: 'Candellar - Your Gateway to Singapore Education Success',
