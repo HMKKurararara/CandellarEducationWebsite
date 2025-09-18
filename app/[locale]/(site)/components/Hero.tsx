@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 import { ArrowRight, BookOpen } from 'lucide-react'
 import { staggerContainer, fadeUp } from '@/lib/animations'
+import Logo from './Logo'
 
 export default function Hero() {
   const t = useTranslations('hero')
@@ -21,6 +22,13 @@ export default function Hero() {
           animate="visible"
           className="text-center max-w-4xl mx-auto"
         >
+          <motion.div
+            variants={fadeUp}
+            className="flex justify-center mb-8"
+          >
+            <Logo size="xl" showText={false} />
+          </motion.div>
+          
           <motion.h1
             variants={fadeUp}
             className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 mb-6 text-balance"

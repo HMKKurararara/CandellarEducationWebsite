@@ -4,52 +4,62 @@ import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 import { User, Mail, Linkedin } from 'lucide-react'
 import { staggerContainer, fadeUp } from '@/lib/animations'
+import { useState } from 'react'
 
 export default function Team() {
   const t = useTranslations('team')
+  const [expandedSlug, setExpandedSlug] = useState<string | null>(null)
 
   const teamMembers = [
     {
       name: t('khine'),
       role: t('khineRole'),
       image: '/api/placeholder/300/300',
-      color: 'bg-primary/10'
+      color: 'bg-primary/10',
+      slug: 'khine-htet-oo'
     },
     {
       name: t('nyan'),
       role: t('nyanRole'),
       image: '/api/placeholder/300/300',
-      color: 'bg-accent/10'
+      color: 'bg-accent/10',
+      slug: 'nyan'
     },
     {
       name: t('phoo'),
       role: t('phooRole'),
       image: '/api/placeholder/300/300',
-      color: 'bg-slate-100'
+      color: 'bg-slate-100',
+      slug: 'phoo-pwint'
     },
     {
       name: t('lin'),
       role: t('linRole'),
       image: '/api/placeholder/300/300',
-      color: 'bg-primary/10'
+      color: 'bg-primary/10',
+      slug: 'lin-lat-aung'
     },
     {
       name: t('whut'),
       role: t('whutRole'),
       image: '/api/placeholder/300/300',
-      color: 'bg-accent/10'
+      color: 'bg-accent/10',
+      slug: 'whut'
     },
     {
       name: t('htut'),
       role: t('htutRole'),
       image: '/api/placeholder/300/300',
-      color: 'bg-slate-100'
+      color: 'bg-slate-100',
+      slug: 'htut-loon-eain'
     },
     {
       name: t('koko'),
       role: t('kokoRole'),
       image: '/api/placeholder/300/300',
-      color: 'bg-primary/10'
+      color: 'bg-primary/10',
+      slug: 'ko-ko',
+      isFounder: true
     }
   ]
 
@@ -78,38 +88,69 @@ export default function Team() {
           viewport={{ once: true, amount: 0.2 }}
           className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8"
         >
-          {teamMembers.map((member, index) => (
-            <motion.div
-              key={index}
-              variants={fadeUp}
-              className="card group hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center"
-            >
-              <div className="relative mb-6">
-                <div className={`w-24 h-24 ${member.color} rounded-full mx-auto flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
-                  <User className="w-12 h-12 text-slate-600" />
+          {teamMembers.map((member, index) => {
+            const isExpanded = expandedSlug === member.slug
+            return (
+              <motion.div
+                key={member.slug}
+                variants={fadeUp}
+                className={`card group transition-all duration-300 text-center hover:-translate-y-1 hover:ring-4 hover:ring-yellow-300/50 hover:shadow-yellow-200/60 ${member.isFounder ? 'lg:col-span-2 lg:col-start-2' : ''}`}
+              >
+                <a href={`team/${member.slug}`} className="block focus:outline-none">
+                  <div className="relative mb-6">
+                    <div className={`w-24 h-24 ${member.color} rounded-full mx-auto flex items-center justify-center group-hover:scale-110 transition-transform duration-300`}>
+                      <User className="w-12 h-12 text-slate-600" />
+                    </div>
+                    <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center">
+                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    </div>
+                  </div>
+                </a>
+                
+                <h3 className="text-lg font-semibold text-slate-900 mb-2">
+                  {member.name}
+                </h3>
+                <p className="text-slate-600 text-sm mb-4">
+                  {member.role}
+                </p>
+
+                {/* Actions */}
+                <div className="flex justify-center space-x-2 mb-4">
+                  <button
+                    onClick={() => setExpandedSlug(isExpanded ? null : member.slug)}
+                    className="px-3 py-1.5 text-sm rounded-xl bg-slate-100 hover:bg-slate-200 transition-colors"
+                  >
+                    {isExpanded ? 'Hide details' : 'View details'}
+                  </button>
+                  <a
+                    href={`team/${member.slug}`}
+                    className="px-3 py-1.5 text-sm rounded-xl border border-slate-200 hover:bg-slate-50 transition-colors"
+                  >
+                    View profile
+                  </a>
                 </div>
-                <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-white rounded-full shadow-lg flex items-center justify-center">
-                  <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+
+                {/* Expandable details */}
+                {isExpanded && (
+                  <div className="text-left bg-slate-50 rounded-xl p-4 text-sm text-slate-700">
+                    <p>
+                      {member.name} is a valued member of Candellar. More biography and achievements can be added here.
+                    </p>
+                  </div>
+                )}
+
+                {/* Socials */}
+                <div className="flex justify-center space-x-2 mt-4">
+                  <button className="w-8 h-8 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center transition-colors">
+                    <Mail className="w-4 h-4 text-slate-600" />
+                  </button>
+                  <button className="w-8 h-8 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center transition-colors">
+                    <Linkedin className="w-4 h-4 text-slate-600" />
+                  </button>
                 </div>
-              </div>
-              
-              <h3 className="text-lg font-semibold text-slate-900 mb-2">
-                {member.name}
-              </h3>
-              <p className="text-slate-600 text-sm mb-4">
-                {member.role}
-              </p>
-              
-              <div className="flex justify-center space-x-2">
-                <button className="w-8 h-8 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center transition-colors">
-                  <Mail className="w-4 h-4 text-slate-600" />
-                </button>
-                <button className="w-8 h-8 bg-slate-100 hover:bg-slate-200 rounded-full flex items-center justify-center transition-colors">
-                  <Linkedin className="w-4 h-4 text-slate-600" />
-                </button>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            )
+          })}
         </motion.div>
 
         {/* Join Our Team CTA */}

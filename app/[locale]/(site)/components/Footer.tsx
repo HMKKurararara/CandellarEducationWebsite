@@ -4,6 +4,7 @@ import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 import { Mail, Phone, MapPin, Facebook, Instagram, Linkedin } from 'lucide-react'
 import { fadeUp } from '@/lib/animations'
+import Logo from './Logo'
 
 export default function Footer() {
   const t = useTranslations('footer')
@@ -20,7 +21,9 @@ export default function Footer() {
         >
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <h3 className="text-2xl font-bold text-white mb-4">Candellar</h3>
+            <div className="mb-4">
+              <Logo size="lg" className="text-white" />
+            </div>
             <p className="text-slate-300 mb-6 max-w-md">
               Your gateway to Singapore education success. We provide affordable, high-quality tuition and exam preparation for AEIS, iPSLE, CEQ, and Cambridge pathways.
             </p>

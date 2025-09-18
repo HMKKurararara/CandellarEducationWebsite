@@ -21,6 +21,11 @@ export const metadata: Metadata = {
   description: 'Affordable, high-quality tuition and exam preparation for AEIS, iPSLE, CEQ, and Cambridge pathways.',
   keywords: 'Singapore education, AEIS, iPSLE, Cambridge English, tuition, Myanmar students',
   authors: [{ name: 'Candellar' }],
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
   openGraph: {
     title: 'Candellar - Your Gateway to Singapore Education Success',
     description: 'Affordable, high-quality tuition and exam preparation for AEIS, iPSLE, CEQ, and Cambridge pathways.',

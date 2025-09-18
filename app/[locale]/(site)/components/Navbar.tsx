@@ -5,6 +5,7 @@ import { useTranslations, useLocale } from 'next-intl'
 import { useRouter, usePathname } from 'next/navigation'
 import { Menu, X, Globe } from 'lucide-react'
 import { cn, getOppositeLocale } from '@/lib/utils'
+import Logo from './Logo'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -50,8 +51,8 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <a href="/" className="text-2xl font-bold text-primary">
-              Candellar
+            <a href="/" className="hover:opacity-80 transition-opacity">
+              <Logo size="md" />
             </a>
           </div>
 
