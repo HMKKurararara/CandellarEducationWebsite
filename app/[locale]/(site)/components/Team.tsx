@@ -50,12 +50,6 @@ export default function Team() {
       role: t('kokoRole'),
       image: '/api/placeholder/300/300',
       color: 'bg-primary/10'
-    },
-    {
-      name: t('ayra'),
-      role: t('ayraRole'),
-      image: '/api/placeholder/300/300',
-      color: 'bg-accent/10'
     }
   ]
 
