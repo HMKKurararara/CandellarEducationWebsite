@@ -39,14 +39,9 @@ const members: Record<string, { name: string; role: string; bio: string }> = {
   }
 }
 
-export default function TeamMemberPage({ params }: { params: Promise<{ slug: string }> }) {
+export default async function TeamMemberPage({ params }: { params: Promise<{ slug: string }> }) {
   // Next.js 15 passes params as a promise
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const data = (global as any).__params as { slug: string } | undefined
-  // Fallback for types; Next injects params at runtime
-  const slugPromise = params
-  // @ts-expect-error - runtime resolution
-  const { slug } = (slugPromise as any) as { slug: string }
+  const { slug } = await params
 
   const member = members[slug]
   if (!member) return notFound()
