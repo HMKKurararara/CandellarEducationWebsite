@@ -4,6 +4,7 @@
     "why": "Why Candellar",
     "team": "Team",
     "testimonials": "Testimonials",
+    "social": "Social Media",
     "contact": "Contact"
   },
   "hero": {
@@ -72,6 +73,11 @@
     "submit": "Submit",
     "success": "Thank you for your interest! We'll contact you soon.",
     "error": "Please fill in all required fields."
+  },
+  "social": {
+    "title": "Follow Our Journey",
+    "description": "Stay updated with our latest news, student achievements, and educational insights.",
+    "visitFacebook": "Visit Our Facebook Page"
   },
   "footer": {
     "contact": "Contact Us",
