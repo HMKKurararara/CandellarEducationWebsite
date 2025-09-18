@@ -37,7 +37,6 @@ export default function Navbar() {
     { key: 'why', href: '#why' },
     { key: 'team', href: '#team' },
     { key: 'testimonials', href: '#testimonials' },
-    { key: 'social', href: '#social' },
     { key: 'contact', href: '#contact' },
   ]
 

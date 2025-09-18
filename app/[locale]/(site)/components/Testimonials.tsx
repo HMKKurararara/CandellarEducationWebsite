@@ -75,7 +75,7 @@ export default function Testimonials() {
             <div className="relative z-10">
               <div className="flex justify-center mb-6">
                 {[...Array(testimonials[currentIndex].rating)].map((_, i) => (
-                  <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                  <Star key={i} className="w-5 h-5 text-accent fill-current" />
                 ))}
               </div>
               
@@ -124,7 +124,7 @@ export default function Testimonials() {
             >
               <div className="flex justify-center mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="w-4 h-4 text-yellow-400 fill-current" />
+                  <Star key={i} className="w-4 h-4 text-accent fill-current" />
                 ))}
               </div>
               

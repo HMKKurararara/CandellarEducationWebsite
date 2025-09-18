@@ -121,7 +121,7 @@ export default function Team() {
             <motion.div
               key={member.slug}
               variants={fadeUp}
-              className={`card group transition-all duration-300 text-center hover:-translate-y-1 hover:ring-4 hover:ring-yellow-300/50 hover:shadow-yellow-200/60 cursor-pointer ${
+              className={`card group transition-all duration-300 text-center hover:-translate-y-1 hover:ring-2 hover:ring-primary/20 hover:shadow-lg cursor-pointer ${
                 member.isFounder ? 'lg:col-span-3 lg:row-start-1' : ''
               }`}
               onClick={() => openModal(member)}

@@ -6,7 +6,6 @@ import Programs from './components/Programs'
 import WhyUs from './components/WhyUs'
 import Team from './components/Team'
 import Testimonials from './components/Testimonials'
-import FacebookFeed from './components/FacebookFeed'
 import CTA from './components/CTA'
 import Footer from './components/Footer'
 
@@ -20,7 +19,6 @@ export default function HomePage() {
       <WhyUs />
       <Team />
       <Testimonials />
-      <FacebookFeed />
       <CTA />
       <Footer />
     </main>
