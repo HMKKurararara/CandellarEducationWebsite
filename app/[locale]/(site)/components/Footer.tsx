@@ -22,7 +22,7 @@ export default function Footer() {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <div className="mb-4">
-              <Logo size="lg" className="text-white" />
+              <Logo size="lg" variant="dark" />
             </div>
             <p className="text-slate-300 mb-6 max-w-md">
               Your gateway to Singapore education success. We provide affordable, high-quality tuition and exam preparation for AEIS, iPSLE, CEQ, and Cambridge pathways.

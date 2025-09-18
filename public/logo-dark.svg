@@ -40,8 +40,8 @@
   <line x1="30" y1="120" x2="20" y2="120" stroke="#1e3a8a" stroke-width="4" stroke-dasharray="4,4" />
   
   <!-- CANDELLAR text -->
-  <text x="100" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1e3a8a">CANDELLAR</text>
+  <text x="100" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white">CANDELLAR</text>
   
   <!-- LEARN MORE FOR LESS text -->
-  <text x="100" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="normal" fill="#64748b">LEARN MORE FOR LESS</text>
+  <text x="100" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="normal" fill="#fbbf24">LEARN MORE FOR LESS</text>
 </svg>
