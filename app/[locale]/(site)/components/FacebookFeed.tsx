@@ -60,10 +60,18 @@ export default function FacebookFeed() {
           variants={fadeUp}
           className="flex justify-center"
         >
-          <div className="bg-white rounded-2xl shadow-xl p-8 border border-slate-200">
+          <div className="bg-white rounded-2xl shadow-xl p-8 border border-slate-200 relative overflow-hidden">
+            {/* Auto-scroll indicator */}
+            <div className="absolute top-4 right-4 z-10">
+              <div className="flex items-center space-x-2 bg-accent/10 text-accent px-3 py-1 rounded-full text-sm font-medium">
+                <div className="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
+                <span>Live Updates</span>
+              </div>
+            </div>
+            
             <div 
               className="fb-page" 
-              data-href="https://www.facebook.com/candellarmm" 
+              data-href="https://www.facebook.com/candellartuition/" 
               data-tabs="timeline"
               data-width="500"
               data-height="600"
@@ -74,10 +82,10 @@ export default function FacebookFeed() {
               data-hide-cta="false"
             >
               <blockquote 
-                cite="https://www.facebook.com/candellarmm" 
+                cite="https://www.facebook.com/candellartuition/" 
                 className="fb-xfbml-parse-ignore"
               >
-                <a href="https://www.facebook.com/candellarmm" className="text-primary hover:text-primary-dark transition-colors">
+                <a href="https://www.facebook.com/candellartuition/" className="text-primary hover:text-primary-dark transition-colors">
                   Candellar Education
                 </a>
               </blockquote>
@@ -109,7 +117,7 @@ export default function FacebookFeed() {
               Stay connected with our latest news, student achievements, and educational insights.
             </p>
             <a
-              href="https://www.facebook.com/candellarmm"
+              href="https://www.facebook.com/candellartuition/"
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary inline-flex items-center space-x-2"
@@ -123,15 +131,31 @@ export default function FacebookFeed() {
         </motion.div>
       </div>
 
-      {/* Custom CSS for Facebook widget styling */}
+      {/* Custom CSS for Facebook widget styling and auto-scroll */}
       <style jsx global>{`
         .fb-page {
           border-radius: 1rem;
           overflow: hidden;
+          position: relative;
         }
         
         .fb-page iframe {
           border-radius: 1rem !important;
+          animation: smoothScroll 20s linear infinite;
+        }
+        
+        /* Auto-scroll animation */
+        @keyframes smoothScroll {
+          0% { transform: translateY(0); }
+          25% { transform: translateY(-10px); }
+          50% { transform: translateY(-20px); }
+          75% { transform: translateY(-10px); }
+          100% { transform: translateY(0); }
+        }
+        
+        /* Pause animation on hover */
+        .fb-page:hover iframe {
+          animation-play-state: paused;
         }
         
         /* Custom styling for Facebook widget */
@@ -149,6 +173,16 @@ export default function FacebookFeed() {
         .fb-page .fb_iframe_widget span {
           border-radius: 1rem;
           overflow: hidden;
+        }
+        
+        /* Live indicator animation */
+        @keyframes pulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.5; }
+        }
+        
+        .animate-pulse {
+          animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
         }
       `}</style>
     </section>
