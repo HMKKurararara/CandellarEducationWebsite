@@ -1,0 +1,86 @@
+{
+  "nav": {
+    "programs": "Programs",
+    "why": "Why Candellar",
+    "team": "Team",
+    "testimonials": "Testimonials",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Your Gateway to Singapore Education Success",
+    "subtitle": "Affordable, high-quality tuition and exam preparation for AEIS, iPSLE, CEQ, and Cambridge pathways."
+  },
+  "cta": {
+    "join": "Join Now",
+    "learnMore": "Learn More",
+    "band": "Start your journey today"
+  },
+  "about": {
+    "title": "About Candellar",
+    "mm": "Myanmar Office: V5PJ+PRV, Pho Yarzar St, Yangon — AEIS & Singapore exam prep.",
+    "sg": "Singapore Office: 8 Somapah Rd, #01-310, Singapore 487372 — affordable tuition.",
+    "mission": "We provide accessible, credible, skills-based learning to help students succeed in Singapore's education system."
+  },
+  "programs": {
+    "title": "Our Programs",
+    "aeis": "AEIS & iPSLE Prep",
+    "aeisDesc": "Comprehensive preparation for Singapore's entrance examinations",
+    "cambridge": "Cambridge English Qualifications",
+    "cambridgeDesc": "KET, PET, and other Cambridge English certifications",
+    "core": "Core Subjects",
+    "coreDesc": "Math, Science, and English for Primary to Secondary levels"
+  },
+  "why": {
+    "title": "Why Choose Us",
+    "smallClasses": "Small Class Sizes",
+    "smallClassesDesc": "Personalized attention for every student",
+    "affordable": "Affordable Pricing",
+    "affordableDesc": "Starting from $130/month",
+    "qualified": "Qualified Teachers",
+    "qualifiedDesc": "Passionate educators with proven track records",
+    "partnerships": "Quality Materials",
+    "partnershipsDesc": "Partnerships with credible educational publishers",
+    "success": "Student Success Focus",
+    "successDesc": "Dedicated to your child's academic achievement"
+  },
+  "team": {
+    "title": "Our Team",
+    "khine": "Khine Htet Oo",
+    "khineRole": "General Regional Manager",
+    "nyan": "Nyan",
+    "nyanRole": "Sales & Marketing Head",
+    "phoo": "Phoo Pwint",
+    "phooRole": "Admin & Marketing",
+    "lin": "Lin Lat Aung",
+    "linRole": "English Teacher",
+    "whut": "Whut",
+    "whutRole": "English Teacher",
+    "htut": "Htut Loon Eain",
+    "htutRole": "Math Teacher",
+    "koko": "Ko Ko",
+    "kokoRole": "Founder",
+    "ayra": "Ayra",
+    "ayraRole": "Founder"
+  },
+  "testimonials": {
+    "title": "What Parents & Students Say"
+  },
+  "form": {
+    "title": "Register Your Interest",
+    "name": "Full Name",
+    "email": "Email",
+    "phone": "Phone",
+    "program": "Program of Interest",
+    "submit": "Submit",
+    "success": "Thank you for your interest! We'll contact you soon.",
+    "error": "Please fill in all required fields."
+  },
+  "footer": {
+    "contact": "Contact Us",
+    "email": "Email",
+    "phone": "Phone",
+    "address": "Address",
+    "myanmar": "Myanmar Office",
+    "singapore": "Singapore Office"
+  }
+}
