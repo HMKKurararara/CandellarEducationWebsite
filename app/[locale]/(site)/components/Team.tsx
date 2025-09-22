@@ -81,6 +81,16 @@ export default function Team() {
       bio: t('htutBio'),
       email: 'htut@candellarmm.com',
       linkedin: 'https://www.linkedin.com/in/htut-loon-eain'
+    },
+    {
+      name: t('suzar'),
+      role: t('suzarRole'),
+      image: '/api/placeholder/300/300',
+      color: 'bg-accent/10',
+      slug: 'suzar',
+      bio: t('suzarBio'),
+      email: 'suzar@candellarmm.com',
+      linkedin: 'https://www.linkedin.com/in/suzar'
     }
   ]
 
