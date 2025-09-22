@@ -56,15 +56,23 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-primary text-white px-8 py-4 rounded-2xl font-medium hover:bg-primary-dark focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-200 hover:scale-105 active:scale-95;
+    @apply bg-primary text-white px-8 py-4 rounded-2xl font-medium hover:bg-primary-dark focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-primary/20 hover:shadow-primary/30;
   }
   
   .btn-secondary {
-    @apply bg-white text-primary border-2 border-primary px-8 py-4 rounded-2xl font-medium hover:bg-primary hover:text-white focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-200 hover:scale-105 active:scale-95;
+    @apply bg-white text-primary border-2 border-primary px-8 py-4 rounded-2xl font-medium hover:bg-primary hover:text-white focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-primary/10 hover:shadow-primary/20;
+  }
+  
+  .btn-accent {
+    @apply bg-accent text-primary px-8 py-4 rounded-2xl font-medium hover:bg-accent-dark focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-200 hover:scale-105 active:scale-95 shadow-lg shadow-accent/20 hover:shadow-accent/30;
   }
   
   .card {
-    @apply bg-white rounded-2xl shadow-lg shadow-slate-200/50 p-8;
+    @apply bg-white rounded-2xl shadow-lg shadow-slate-200/50 p-8 border border-slate-100 hover:border-primary/20 transition-all duration-300;
+  }
+  
+  .card-hover {
+    @apply hover:shadow-xl hover:shadow-primary/10 hover:-translate-y-1 hover:border-accent/30;
   }
   
   .nav-link {
@@ -72,12 +80,28 @@
   }
   
   .nav-link::after {
-    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all duration-300;
+    @apply absolute bottom-0 left-0 w-0 h-0.5 bg-accent transition-all duration-300;
     content: '';
   }
   
   .nav-link:hover::after {
     @apply w-full;
+  }
+  
+  .section-bg {
+    @apply bg-gradient-to-br from-slate-50 to-white;
+  }
+  
+  .hero-gradient {
+    @apply bg-gradient-to-br from-primary/5 via-white to-accent/5;
+  }
+  
+  .accent-border {
+    @apply border-l-4 border-accent;
+  }
+  
+  .primary-border {
+    @apply border-l-4 border-primary;
   }
 }
 

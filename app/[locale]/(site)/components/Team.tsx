@@ -27,7 +27,7 @@ export default function Team() {
       name: t('khine'),
       role: t('khineRole'),
       image: '/api/placeholder/300/300',
-      color: 'bg-accent/10',
+      color: 'bg-primary/10',
       slug: 'khine-htet-oo',
       bio: t('khineBio'),
       email: 'khine_htet@candellarsg.com',
@@ -47,7 +47,7 @@ export default function Team() {
       name: t('nyan'),
       role: t('nyanRole'),
       image: '/api/placeholder/300/300',
-      color: 'bg-slate-100',
+      color: 'bg-primary/10',
       slug: 'nyan',
       bio: t('nyanBio'),
       email: 'nyan_htet@candellarsg.com',
@@ -57,7 +57,7 @@ export default function Team() {
       name: t('suzar'),
       role: t('suzarRole'),
       image: '/api/placeholder/300/300',
-      color: 'bg-accent/10',
+      color: 'bg-primary/10',
       slug: 'suzar',
       bio: t('suzarBio'),
       email: 'su_zar@candellarsg.com',
@@ -70,7 +70,7 @@ export default function Team() {
       name: t('whut'),
       role: t('whutRole'),
       image: '/api/placeholder/300/300',
-      color: 'bg-slate-100',
+      color: 'bg-primary/10',
       slug: 'whut',
       bio: t('whutBio'),
       email: 'wut_hmone@candellarsg.com',
@@ -90,7 +90,7 @@ export default function Team() {
       name: t('htut'),
       role: t('htutRole'),
       image: '/api/placeholder/300/300',
-      color: 'bg-accent/10',
+      color: 'bg-primary/10',
       slug: 'htut-loon-eain',
       bio: t('htutBio'),
       email: 'htut_eain@candellarsg.com',
@@ -107,7 +107,7 @@ export default function Team() {
   }
 
   return (
-    <section id="team" className="py-16 lg:py-24 bg-slate-50">
+    <section id="team" className="py-16 lg:py-24 section-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -135,7 +135,7 @@ export default function Team() {
           <motion.div
             key={founder.slug}
             variants={fadeUp}
-            className="card group transition-all duration-300 text-center hover:-translate-y-1 hover:ring-2 hover:ring-primary/20 hover:shadow-lg cursor-pointer lg:col-span-3 lg:row-start-1"
+            className="card card-hover group transition-all duration-300 text-center hover:ring-2 hover:ring-accent hover:shadow-accent/20 cursor-pointer lg:col-span-3 lg:row-start-1"
             onClick={() => openModal(founder)}
           >
             <div className="relative mb-6">
@@ -201,7 +201,7 @@ export default function Team() {
               <motion.div
                 key={member.slug}
                 variants={fadeUp}
-                className="card group transition-all duration-300 text-center hover:-translate-y-1 hover:ring-2 hover:ring-primary/20 hover:shadow-lg cursor-pointer"
+                className="card card-hover group transition-all duration-300 text-center hover:ring-2 hover:ring-accent hover:shadow-accent/20 cursor-pointer"
                 onClick={() => openModal(member)}
               >
                 <div className="relative mb-6">
@@ -269,7 +269,7 @@ export default function Team() {
               <motion.div
                 key={member.slug}
                 variants={fadeUp}
-                className="card group transition-all duration-300 text-center hover:-translate-y-1 hover:ring-2 hover:ring-primary/20 hover:shadow-lg cursor-pointer"
+                className="card card-hover group transition-all duration-300 text-center hover:ring-2 hover:ring-accent hover:shadow-accent/20 cursor-pointer"
                 onClick={() => openModal(member)}
               >
                 <div className="relative mb-6">

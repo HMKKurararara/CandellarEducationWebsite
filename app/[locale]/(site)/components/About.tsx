@@ -9,7 +9,7 @@ export default function About() {
   const t = useTranslations('about')
 
   return (
-    <section className="py-16 lg:py-24 bg-white">
+    <section className="py-16 lg:py-24 section-bg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -33,7 +33,7 @@ export default function About() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeUp}
-            className="card group hover:shadow-xl transition-shadow duration-300"
+            className="card card-hover group transition-all duration-300"
           >
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
@@ -58,7 +58,7 @@ export default function About() {
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
             variants={fadeUp}
-            className="card group hover:shadow-xl transition-shadow duration-300"
+            className="card card-hover group transition-all duration-300"
           >
             <div className="flex items-start space-x-4">
               <div className="flex-shrink-0">
@@ -86,7 +86,7 @@ export default function About() {
           variants={fadeUp}
           className="mt-16 text-center"
         >
-          <div className="bg-slate-50 rounded-2xl p-8 lg:p-12">
+          <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 lg:p-12 border border-primary/10">
             <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
               <Target className="w-8 h-8 text-primary" />
             </div>

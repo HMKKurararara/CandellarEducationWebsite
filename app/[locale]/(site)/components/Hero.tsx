@@ -11,7 +11,7 @@ export default function Hero() {
   const tCta = useTranslations('cta')
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 to-white overflow-hidden">
+    <section className="relative min-h-screen flex items-center justify-center hero-gradient overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-grid-slate-100 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10" />
       
