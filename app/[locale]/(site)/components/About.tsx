@@ -73,14 +73,8 @@ export default function About() {
                   Myanmar Office
                 </h3>
                 <p className="text-neutral-600 leading-relaxed text-lg">
-                  {t('mm')}
+                  {t('address')}
                 </p>
-                <div className="mt-6 pt-6 border-t border-neutral-100">
-                  <div className="text-sm text-neutral-500 mb-2">Address</div>
-                  <div className="font-medium text-neutral-700">{t('address')}</div>
-                  <div className="text-sm text-neutral-500 mt-2 mb-1">Phone</div>
-                  <div className="font-medium text-primary">{t('phone')}</div>
-                </div>
               </div>
             </div>
           </motion.div>
@@ -101,14 +95,8 @@ export default function About() {
                   Singapore Office
                 </h3>
                 <p className="text-neutral-600 leading-relaxed text-lg">
-                  {t('sg')}
+                  Singapore
                 </p>
-                <div className="mt-6 pt-6 border-t border-neutral-100">
-                  <div className="text-sm text-neutral-500 mb-2">Location</div>
-                  <div className="font-medium text-neutral-700">Singapore</div>
-                  <div className="text-sm text-neutral-500 mt-2 mb-1">Services</div>
-                  <div className="font-medium text-accent-dark">Full Support & Coordination</div>
-                </div>
               </div>
             </div>
           </motion.div>

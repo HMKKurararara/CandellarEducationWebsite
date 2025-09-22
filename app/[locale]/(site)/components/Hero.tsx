@@ -64,7 +64,7 @@ export default function Hero() {
           animate="visible"
           className="text-center max-w-6xl mx-auto"
         >
-          {/* Logo with Premium Animation */}
+          {/* Logo */}
           <motion.div
             variants={fadeUp}
             className="flex justify-center mb-12"
@@ -73,34 +73,16 @@ export default function Hero() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="relative"
             >
               <Logo size="xl" showText={false} />
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute inset-0 border-2 border-primary/20 rounded-full border-dashed"
-              />
             </motion.div>
           </motion.div>
           
-          {/* Premium Headline */}
+          {/* Headline */}
           <motion.div
             variants={fadeUp}
             className="mb-8"
           >
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="inline-flex items-center px-6 py-3 rounded-full bg-primary/10 border border-primary/20 mb-6"
-            >
-              <Sparkles className="w-5 h-5 text-primary mr-2" />
-              <span className="text-primary font-semibold text-sm tracking-wide uppercase">
-                Premium Education Center
-              </span>
-            </motion.div>
-            
             <motion.h1
               variants={fadeUp}
               className="text-gradient mb-6 text-balance leading-tight"
@@ -185,7 +167,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 1.5, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
       >
         <motion.div
           animate={{ y: [0, 8, 0] }}

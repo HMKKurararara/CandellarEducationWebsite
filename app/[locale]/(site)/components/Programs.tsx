@@ -75,7 +75,7 @@ export default function Programs() {
             variants={fadeUp}
             className="text-lead max-w-4xl mx-auto text-balance"
           >
-            {t('description')}
+            We provide a one-stop solution for Singapore education for international students, offering comprehensive programs designed to help students succeed in Singapore's competitive academic environment.
           </motion.p>
         </motion.div>
 

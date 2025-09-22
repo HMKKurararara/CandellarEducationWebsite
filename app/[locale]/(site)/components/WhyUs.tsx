@@ -28,15 +28,15 @@ export default function WhyUs() {
     {
       icon: Award,
       title: t('qualified'),
-      description: t('qualifiedDesc'),
+      description: 'Cambridge-trained teachers and British Council certified educators. Our math teachers are Singapore Math specialists.',
       color: 'from-neutral-100 to-neutral-200',
       iconColor: 'text-neutral-700',
       borderColor: 'border-neutral-200'
     },
     {
       icon: BookOpen,
-      title: t('partnerships'),
-      description: t('partnershipsDesc'),
+      title: 'Official Materials',
+      description: 'We use official Singapore textbooks and educational materials to ensure curriculum alignment.',
       color: 'from-primary/10 to-primary/20',
       iconColor: 'text-primary',
       borderColor: 'border-primary/20'
@@ -48,6 +48,14 @@ export default function WhyUs() {
       color: 'from-accent/10 to-accent/20',
       iconColor: 'text-accent-dark',
       borderColor: 'border-accent/20'
+    },
+    {
+      icon: Users,
+      title: 'Personalized Support',
+      description: '1-on-1 progress reports and monthly parent meetings to track your child\'s development.',
+      color: 'from-primary/10 to-primary/20',
+      iconColor: 'text-primary',
+      borderColor: 'border-primary/20'
     }
   ]
 
