@@ -121,7 +121,7 @@ export default function Programs() {
                 {/* CTA Button */}
                 <motion.a
                   href="/register"
-                  className="btn-outline w-full justify-center group/btn"
+                  className="btn-outline w-full flex items-center justify-center space-x-2 group/btn"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >

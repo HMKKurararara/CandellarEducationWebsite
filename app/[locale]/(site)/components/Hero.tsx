@@ -163,27 +163,28 @@ export default function Hero() {
       </div>
       
       {/* Premium Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 1.5, duration: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10"
-      >
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
         <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 2, repeat: Infinity }}
-          className="flex flex-col items-center text-neutral-500 hover:text-primary transition-colors cursor-pointer"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 1.5, duration: 0.8 }}
         >
-          <div className="w-6 h-10 border-2 border-current rounded-full flex justify-center mb-2">
-            <motion.div
-              animate={{ y: [0, 12, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-1 h-3 bg-current rounded-full mt-2"
-            />
-          </div>
-          <span className="text-xs font-medium tracking-wide">Scroll</span>
+          <motion.div
+            animate={{ y: [0, 8, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="flex flex-col items-center text-neutral-500 hover:text-primary transition-colors cursor-pointer"
+          >
+            <div className="w-6 h-10 border-2 border-current rounded-full flex justify-center mb-2">
+              <motion.div
+                animate={{ y: [0, 12, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+                className="w-1 h-3 bg-current rounded-full mt-2"
+              />
+            </div>
+            <span className="text-xs font-medium tracking-wide">Scroll</span>
+          </motion.div>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   )
 }
