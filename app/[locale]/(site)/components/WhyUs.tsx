@@ -67,10 +67,10 @@ export default function WhyUs() {
 
   return (
     <section id="why" className="section-padding section-bg relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 left-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-20 w-72 h-72 bg-accent/5 rounded-full blur-3xl" />
+      {/* Optimized Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-20 w-64 h-64 bg-primary/3 rounded-full blur-xl opacity-60" />
+        <div className="absolute bottom-20 right-20 w-72 h-72 bg-accent/3 rounded-full blur-xl opacity-60" />
       </div>
 
       <div className="container-premium relative z-10">

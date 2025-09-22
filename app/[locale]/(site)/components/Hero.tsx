@@ -15,46 +15,11 @@ export default function Hero() {
       {/* Premium Background Elements */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-white to-accent/5" />
       
-      {/* Floating Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <motion.div
-          animate={{ 
-            y: [0, -20, 0],
-            rotate: [0, 5, 0]
-          }}
-          transition={{ 
-            duration: 6, 
-            repeat: Infinity, 
-            ease: "easeInOut" 
-          }}
-          className="absolute top-20 left-10 w-20 h-20 bg-accent/10 rounded-full blur-xl"
-        />
-        <motion.div
-          animate={{ 
-            y: [0, 20, 0],
-            rotate: [0, -5, 0]
-          }}
-          transition={{ 
-            duration: 8, 
-            repeat: Infinity, 
-            ease: "easeInOut",
-            delay: 1
-          }}
-          className="absolute top-40 right-20 w-32 h-32 bg-primary/10 rounded-full blur-xl"
-        />
-        <motion.div
-          animate={{ 
-            y: [0, -15, 0],
-            x: [0, 10, 0]
-          }}
-          transition={{ 
-            duration: 7, 
-            repeat: Infinity, 
-            ease: "easeInOut",
-            delay: 2
-          }}
-          className="absolute bottom-40 left-1/4 w-16 h-16 bg-accent/15 rounded-full blur-lg"
-        />
+      {/* Simplified Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-20 h-20 bg-accent/5 rounded-full blur-lg opacity-50" />
+        <div className="absolute top-40 right-20 w-32 h-32 bg-primary/5 rounded-full blur-lg opacity-50" />
+        <div className="absolute bottom-40 left-1/4 w-16 h-16 bg-accent/5 rounded-full blur-md opacity-50" />
       </div>
       
       <div className="container-premium relative z-10">
@@ -162,27 +127,22 @@ export default function Hero() {
         </motion.div>
       </div>
       
-      {/* Premium Scroll Indicator */}
+      {/* Optimized Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.8 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1.5, duration: 0.5 }}
+          className="flex flex-col items-center text-neutral-500 hover:text-primary transition-colors cursor-pointer"
         >
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-            className="flex flex-col items-center text-neutral-500 hover:text-primary transition-colors cursor-pointer"
-          >
-            <div className="w-6 h-10 border-2 border-current rounded-full flex justify-center mb-2">
-              <motion.div
-                animate={{ y: [0, 12, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="w-1 h-3 bg-current rounded-full mt-2"
-              />
-            </div>
-            <span className="text-xs font-medium tracking-wide">Scroll</span>
-          </motion.div>
+          <div className="w-6 h-10 border-2 border-current rounded-full flex justify-center mb-2">
+            <motion.div
+              animate={{ y: [2, 8, 2] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+              className="w-1 h-3 bg-current rounded-full mt-2"
+            />
+          </div>
+          <span className="text-xs font-medium tracking-wide">Scroll</span>
         </motion.div>
       </div>
     </section>

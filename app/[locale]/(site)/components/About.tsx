@@ -10,17 +10,17 @@ export default function About() {
 
   return (
     <section className="section-padding section-bg relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-20 right-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 left-20 w-48 h-48 bg-accent/5 rounded-full blur-3xl" />
+      {/* Optimized Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 right-20 w-64 h-64 bg-primary/3 rounded-full blur-xl opacity-60" />
+        <div className="absolute bottom-20 left-20 w-48 h-48 bg-accent/3 rounded-full blur-xl opacity-60" />
       </div>
 
       <div className="container-premium relative z-10">
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1 }}
           variants={staggerContainer}
           className="text-center mb-20"
         >
