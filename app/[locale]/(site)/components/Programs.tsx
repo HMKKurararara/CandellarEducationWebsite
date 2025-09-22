@@ -2,7 +2,7 @@
 
 import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
-import { BookOpen, Award, GraduationCap } from 'lucide-react'
+import { BookOpen, Award, GraduationCap, Sparkles, CheckCircle, ArrowRight } from 'lucide-react'
 import { staggerContainer, fadeUp } from '@/lib/animations'
 
 export default function Programs() {
@@ -13,41 +13,70 @@ export default function Programs() {
       icon: BookOpen,
       title: t('aeis'),
       description: t('aeisDesc'),
-      color: 'bg-primary/10 text-primary',
-      hoverColor: 'group-hover:bg-primary/20'
+      features: ['Exam Preparation', 'Mock Tests', 'Study Materials'],
+      color: 'from-primary/10 to-primary/20',
+      iconColor: 'text-primary',
+      borderColor: 'border-primary/20'
     },
     {
       icon: Award,
       title: t('cambridge'),
       description: t('cambridgeDesc'),
-      color: 'bg-accent/10 text-accent',
-      hoverColor: 'group-hover:bg-accent/20'
+      features: ['Cambridge Curriculum', 'Certified Teachers', 'International Standards'],
+      color: 'from-accent/10 to-accent/20',
+      iconColor: 'text-accent-dark',
+      borderColor: 'border-accent/20'
     },
     {
       icon: GraduationCap,
       title: t('core'),
       description: t('coreDesc'),
-      color: 'bg-slate-100 text-slate-700',
-      hoverColor: 'group-hover:bg-slate-200'
+      features: ['Core Subjects', 'Skill Building', 'Academic Support'],
+      color: 'from-neutral-100 to-neutral-200',
+      iconColor: 'text-neutral-700',
+      borderColor: 'border-neutral-200'
     }
   ]
 
   return (
-    <section id="programs" className="py-16 lg:py-24 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="programs" className="section-padding bg-white relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-40 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-40 right-10 w-64 h-64 bg-accent/5 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container-premium relative z-10">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          variants={fadeUp}
-          className="text-center mb-16"
+          variants={staggerContainer}
+          className="text-center mb-20"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+          <motion.div
+            variants={fadeUp}
+            className="inline-flex items-center px-6 py-3 rounded-full bg-primary/10 border border-primary/20 mb-8"
+          >
+            <Sparkles className="w-5 h-5 text-primary mr-2" />
+            <span className="text-primary font-semibold text-sm tracking-wide uppercase">
+              Our Programs
+            </span>
+          </motion.div>
+          
+          <motion.h2
+            variants={fadeUp}
+            className="text-gradient mb-8 text-balance"
+          >
             {t('title')}
-          </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-            Comprehensive educational programs designed to help students succeed in Singapore's competitive academic environment.
-          </p>
+          </motion.h2>
+          
+          <motion.p
+            variants={fadeUp}
+            className="text-lead max-w-4xl mx-auto text-balance"
+          >
+            {t('description')}
+          </motion.p>
         </motion.div>
 
         <motion.div
@@ -55,51 +84,99 @@ export default function Programs() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid lg:grid-cols-3 gap-12 mb-20"
         >
           {programs.map((program, index) => (
             <motion.div
               key={index}
               variants={fadeUp}
-              className="card group hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
+              className="card-premium group relative overflow-hidden"
             >
-              <div className="text-center">
-                <div className={`w-16 h-16 ${program.color} ${program.hoverColor} rounded-2xl flex items-center justify-center mx-auto mb-6 transition-colors duration-300`}>
-                  <program.icon className="w-8 h-8" />
+              <div className="absolute inset-0 bg-gradient-to-br opacity-0 group-hover:opacity-100 transition-opacity duration-300" 
+                   style={{ backgroundImage: `linear-gradient(135deg, ${program.color.split(' ')[1]}, ${program.color.split(' ')[3]})` }} />
+              
+              <div className="relative z-10">
+                <div className="text-center mb-8">
+                  <div className={`w-20 h-20 bg-gradient-to-br ${program.color} ${program.borderColor} border rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                    <program.icon className={`w-10 h-10 ${program.iconColor}`} />
+                  </div>
+                  <h3 className="text-2xl font-semibold text-neutral-900 mb-4">
+                    {program.title}
+                  </h3>
+                  <p className="text-neutral-600 leading-relaxed text-lg mb-6">
+                    {program.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-semibold text-slate-900 mb-4">
-                  {program.title}
-                </h3>
-                <p className="text-slate-600 leading-relaxed">
-                  {program.description}
-                </p>
+
+                {/* Features List */}
+                <div className="space-y-3 mb-8">
+                  {program.features.map((feature, featureIndex) => (
+                    <div key={featureIndex} className="flex items-center space-x-3">
+                      <CheckCircle className="w-5 h-5 text-primary flex-shrink-0" />
+                      <span className="text-neutral-600 font-medium">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* CTA Button */}
+                <motion.a
+                  href="/register"
+                  className="btn-outline w-full justify-center group/btn"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <span>Learn More</span>
+                  <ArrowRight className="w-5 h-5 group-hover/btn:translate-x-1 transition-transform duration-300" />
+                </motion.a>
               </div>
             </motion.div>
           ))}
         </motion.div>
 
-        {/* Call to Action */}
+        {/* Premium Call to Action */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeUp}
-          className="text-center mt-16"
+          className="text-center"
         >
-          <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg">
-            <h3 className="text-2xl font-semibold text-slate-900 mb-4">
-              Ready to Get Started?
-            </h3>
-            <p className="text-slate-600 mb-8 max-w-2xl mx-auto">
-              Join hundreds of students who have successfully prepared for Singapore's top schools with our proven programs.
-            </p>
-            <a
-              href="/register"
-              className="btn-primary inline-flex items-center space-x-2 group"
-            >
-              <span>Register Now</span>
-              <BookOpen className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </a>
+          <div className="card-gradient relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
+            <div className="relative z-10">
+              <div className="w-24 h-24 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl flex items-center justify-center mx-auto mb-8 border border-primary/20">
+                <GraduationCap className="w-12 h-12 text-primary" />
+              </div>
+              <h3 className="text-3xl font-semibold text-gradient mb-6">
+                Ready to Begin Your Journey?
+              </h3>
+              <p className="text-xl text-neutral-600 mb-10 max-w-3xl mx-auto leading-relaxed text-balance">
+                Join hundreds of students who have successfully prepared for Singapore's top schools with our proven programs.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
+                <motion.a
+                  href="/register"
+                  className="btn-primary inline-flex items-center space-x-3 group"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <BookOpen className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" />
+                  <span>Register Now</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </motion.a>
+                
+                <motion.a
+                  href="#why"
+                  className="btn-secondary inline-flex items-center space-x-3 group"
+                  whileHover={{ scale: 1.05, y: -2 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <span>Why Choose Us</span>
+                  <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
+                </motion.a>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>

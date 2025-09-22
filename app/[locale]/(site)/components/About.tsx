@@ -2,100 +2,156 @@
 
 import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
-import { MapPin, Building2, Target } from 'lucide-react'
-import { fadeUp } from '@/lib/animations'
+import { MapPin, Building2, Target, Sparkles, Award, Users } from 'lucide-react'
+import { fadeUp, staggerContainer } from '@/lib/animations'
 
 export default function About() {
   const t = useTranslations('about')
 
   return (
-    <section className="py-16 lg:py-24 section-bg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="section-padding section-bg relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute top-20 right-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 left-20 w-48 h-48 bg-accent/5 rounded-full blur-3xl" />
+      </div>
+
+      <div className="container-premium relative z-10">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
-          variants={fadeUp}
-          className="text-center mb-16"
+          variants={staggerContainer}
+          className="text-center mb-20"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
+          <motion.div
+            variants={fadeUp}
+            className="inline-flex items-center px-6 py-3 rounded-full bg-primary/10 border border-primary/20 mb-8"
+          >
+            <Sparkles className="w-5 h-5 text-primary mr-2" />
+            <span className="text-primary font-semibold text-sm tracking-wide uppercase">
+              About Candellar
+            </span>
+          </motion.div>
+          
+          <motion.h2
+            variants={fadeUp}
+            className="text-gradient mb-8 text-balance"
+          >
             {t('title')}
-          </h2>
-          <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+          </motion.h2>
+          
+          <motion.p
+            variants={fadeUp}
+            className="text-lead max-w-4xl mx-auto text-balance"
+          >
             {t('mission')}
-          </p>
+          </motion.p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+        {/* Premium Office Cards */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={staggerContainer}
+          className="grid lg:grid-cols-2 gap-12 mb-20"
+        >
           {/* Myanmar Office */}
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
             variants={fadeUp}
-            className="card card-hover group transition-all duration-300"
+            className="card-premium group"
           >
-            <div className="flex items-start space-x-4">
+            <div className="flex flex-col lg:flex-row items-start space-y-6 lg:space-y-0 lg:space-x-8">
               <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <MapPin className="w-6 h-6 text-primary" />
+                <div className="w-20 h-20 bg-gradient-to-br from-primary/10 to-primary/20 rounded-3xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-primary/20">
+                  <MapPin className="w-10 h-10 text-primary" />
                 </div>
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">
+                <h3 className="text-2xl font-semibold text-neutral-900 mb-4">
                   Myanmar Office
                 </h3>
-                <p className="text-slate-600 leading-relaxed">
+                <p className="text-neutral-600 leading-relaxed text-lg">
                   {t('mm')}
                 </p>
+                <div className="mt-6 pt-6 border-t border-neutral-100">
+                  <div className="text-sm text-neutral-500 mb-2">Address</div>
+                  <div className="font-medium text-neutral-700">{t('address')}</div>
+                  <div className="text-sm text-neutral-500 mt-2 mb-1">Phone</div>
+                  <div className="font-medium text-primary">{t('phone')}</div>
+                </div>
               </div>
             </div>
           </motion.div>
 
           {/* Singapore Office */}
           <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.3 }}
             variants={fadeUp}
-            className="card card-hover group transition-all duration-300"
+            className="card-premium group"
           >
-            <div className="flex items-start space-x-4">
+            <div className="flex flex-col lg:flex-row items-start space-y-6 lg:space-y-0 lg:space-x-8">
               <div className="flex-shrink-0">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-                  <Building2 className="w-6 h-6 text-primary" />
+                <div className="w-20 h-20 bg-gradient-to-br from-accent/10 to-accent/20 rounded-3xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 border border-accent/20">
+                  <Building2 className="w-10 h-10 text-accent-dark" />
                 </div>
               </div>
               <div className="flex-1">
-                <h3 className="text-xl font-semibold text-slate-900 mb-2">
+                <h3 className="text-2xl font-semibold text-neutral-900 mb-4">
                   Singapore Office
                 </h3>
-                <p className="text-slate-600 leading-relaxed">
+                <p className="text-neutral-600 leading-relaxed text-lg">
                   {t('sg')}
                 </p>
+                <div className="mt-6 pt-6 border-t border-neutral-100">
+                  <div className="text-sm text-neutral-500 mb-2">Location</div>
+                  <div className="font-medium text-neutral-700">Singapore</div>
+                  <div className="text-sm text-neutral-500 mt-2 mb-1">Services</div>
+                  <div className="font-medium text-accent-dark">Full Support & Coordination</div>
+                </div>
               </div>
             </div>
           </motion.div>
-        </div>
+        </motion.div>
 
-        {/* Mission Statement */}
+        {/* Premium Mission Statement */}
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={fadeUp}
-          className="mt-16 text-center"
+          className="text-center"
         >
-          <div className="bg-gradient-to-br from-primary/5 to-accent/5 rounded-2xl p-8 lg:p-12 border border-primary/10">
-            <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-6">
-              <Target className="w-8 h-8 text-primary" />
+          <div className="card-gradient relative overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-accent/5" />
+            <div className="relative z-10">
+              <div className="w-24 h-24 bg-gradient-to-br from-primary/20 to-accent/20 rounded-3xl flex items-center justify-center mx-auto mb-8 border border-primary/20">
+                <Target className="w-12 h-12 text-primary" />
+              </div>
+              <h3 className="text-3xl font-semibold text-gradient mb-6">
+                Our Mission
+              </h3>
+              <p className="text-xl text-neutral-600 max-w-5xl mx-auto leading-relaxed text-balance">
+                {t('mission')}
+              </p>
+              
+              {/* Mission Stats */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 pt-12 border-t border-neutral-200">
+                {[
+                  { icon: Award, label: "8+ Years", sublabel: "Educational Excellence" },
+                  { icon: Users, label: "300+", sublabel: "Successful Students" },
+                  { icon: Sparkles, label: "95%", sublabel: "Success Rate" }
+                ].map((stat, index) => (
+                  <div key={stat.label} className="text-center">
+                    <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-primary/10 to-accent/10 rounded-2xl mb-4 border border-primary/20">
+                      <stat.icon className="w-8 h-8 text-primary" />
+                    </div>
+                    <div className="text-3xl font-bold text-gradient mb-2">{stat.label}</div>
+                    <div className="text-neutral-600 font-medium">{stat.sublabel}</div>
+                  </div>
+                ))}
+              </div>
             </div>
-            <h3 className="text-2xl font-semibold text-slate-900 mb-4">
-              Our Mission
-            </h3>
-            <p className="text-lg text-slate-600 max-w-4xl mx-auto leading-relaxed">
-              {t('mission')}
-            </p>
           </div>
         </motion.div>
       </div>

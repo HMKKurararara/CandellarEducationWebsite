@@ -1,17 +1,24 @@
 import type { Metadata } from 'next'
-import { Inter, Noto_Sans_Myanmar } from 'next/font/google'
+import { Inter, Playfair_Display, Noto_Sans_Myanmar } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({ 
   subsets: ['latin'],
-  weight: ['400', '500', '700'],
+  weight: ['300', '400', '500', '600', '700', '800'],
   variable: '--font-inter',
+  display: 'swap',
+})
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  variable: '--font-playfair',
   display: 'swap',
 })
 
 const notoSansMyanmar = Noto_Sans_Myanmar({ 
   subsets: ['myanmar'],
-  weight: ['400', '500', '700'],
+  weight: ['400', '500', '600', '700'],
   variable: '--font-noto-myanmar',
   display: 'swap',
 })
@@ -44,7 +51,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${inter.variable} ${notoSansMyanmar.variable}`}>
+    <html lang="en" className={`${inter.variable} ${playfair.variable} ${notoSansMyanmar.variable}`}>
       <body className="font-inter antialiased">
         {children}
       </body>
