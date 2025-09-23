@@ -49,7 +49,7 @@ export default function Footer() {
             
             <motion.p
               variants={fadeUp}
-              className="text-neutral-300 mb-8 max-w-lg text-lg leading-relaxed"
+              className="text-neutral-200 mb-8 max-w-lg text-lg leading-relaxed"
             >
               Your gateway to Singapore education success. We provide affordable, high-quality tuition and exam preparation for AEIS, iPSLE, CEQ, and Cambridge pathways.
             </motion.p>
@@ -106,19 +106,19 @@ export default function Footer() {
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
-                <div className="text-neutral-300">
+                <div className="text-neutral-200">
                   {t('myanmarAddress')}
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="tel:+959988434188" className="text-neutral-300 hover:text-white transition-colors">
+                <a href="tel:+959988434188" className="text-neutral-200 hover:text-white transition-colors">
                   {t('myanmarPhone')}
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="mailto:contact@candellarsg.com" className="text-neutral-300 hover:text-white transition-colors">
+                <a href="mailto:contact@candellarsg.com" className="text-neutral-200 hover:text-white transition-colors">
                   {t('email')}
                 </a>
               </div>
@@ -137,19 +137,19 @@ export default function Footer() {
             <div className="space-y-4">
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
-                <div className="text-neutral-300">
+                <div className="text-neutral-200">
                   {t('singaporeAddress')}
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-accent flex-shrink-0" />
-                <a href="tel:+6596344183" className="text-neutral-300 hover:text-white transition-colors">
+                <a href="tel:+6596344183" className="text-neutral-200 hover:text-white transition-colors">
                   {t('singaporePhone')}
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-accent flex-shrink-0" />
-                <a href="mailto:contact@candellarsg.com" className="text-neutral-300 hover:text-white transition-colors">
+                <a href="mailto:contact@candellarsg.com" className="text-neutral-200 hover:text-white transition-colors">
                   {t('email')}
                 </a>
               </div>
@@ -170,7 +170,7 @@ export default function Footer() {
               <a
                 key={link.name}
                 href={link.href}
-                className="text-neutral-400 hover:text-white transition-colors duration-300 flex items-center group"
+                className="text-neutral-300 hover:text-white transition-colors duration-300 flex items-center group"
               >
                 <span>{link.name}</span>
                 <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
@@ -188,14 +188,14 @@ export default function Footer() {
           className="border-t border-neutral-700 pt-8"
         >
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-neutral-400 text-sm mb-4 md:mb-0">
+            <p className="text-neutral-300 text-sm mb-4 md:mb-0">
               © 2024 Candellar. All rights reserved.
             </p>
             <div className="flex space-x-8">
-              <a href="#" className="text-neutral-400 text-sm hover:text-white transition-colors">
+              <a href="#" className="text-neutral-300 text-sm hover:text-white transition-colors">
                 Privacy Policy
               </a>
-              <a href="#" className="text-neutral-400 text-sm hover:text-white transition-colors">
+              <a href="#" className="text-neutral-300 text-sm hover:text-white transition-colors">
                 Terms of Service
               </a>
             </div>

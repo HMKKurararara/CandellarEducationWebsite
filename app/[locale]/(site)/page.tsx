@@ -16,10 +16,10 @@ export default function HomePage() {
       <Navbar />
       <Hero />
       <About />
+      <Testimonials />
       <Programs />
       <WhyUs />
       <Team />
-      <Testimonials />
       <Partners />
       <CTA />
       <Footer />

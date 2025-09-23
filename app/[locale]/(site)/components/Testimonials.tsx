@@ -2,19 +2,15 @@
 
 import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
-import { Star, Quote, Sparkles, ChevronLeft, ChevronRight, ZoomIn, X } from 'lucide-react'
+import { Star, Sparkles, ZoomIn, X, ChevronRight } from 'lucide-react'
 import { staggerContainer, fadeUp } from '@/lib/animations'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Image from 'next/image'
 
 export default function Testimonials() {
   const t = useTranslations('testimonials')
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
-  const [currentPage, setCurrentPage] = useState(0)
-  const [isAutoAdvanceActive, setIsAutoAdvanceActive] = useState(true)
-  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null)
-  const [imagesLoaded, setImagesLoaded] = useState<Set<string>>(new Set())
-  const imagesPerPage = 8
+  const [showAll, setShowAll] = useState(false)
 
   // Real student testimonial images
   const testimonialImages = [
@@ -37,76 +33,10 @@ export default function Testimonials() {
     'photo_2025-09-22_12-52-58.jpg'
   ]
 
-  const totalPages = Math.ceil(testimonialImages.length / imagesPerPage)
-  const currentImages = testimonialImages.slice(
-    currentPage * imagesPerPage,
-    (currentPage + 1) * imagesPerPage
-  )
-
-  const handleManualNavigation = (newPage: number) => {
-    const newImages = testimonialImages.slice(
-      newPage * imagesPerPage,
-      (newPage + 1) * imagesPerPage
-    )
-    console.log(`Navigating to page ${newPage}, new images:`, newImages.length, newImages)
-    
-    // Clear existing timeout
-    if (timeoutId) {
-      clearTimeout(timeoutId)
-    }
-    
-    setCurrentPage(newPage)
-    setIsAutoAdvanceActive(false)
-    
-    // Set new timeout for resuming auto-advance
-    const newTimeoutId = setTimeout(() => {
-      setIsAutoAdvanceActive(true)
-      setTimeoutId(null)
-    }, 15000)
-    
-    setTimeoutId(newTimeoutId)
-  }
-
-  const nextPage = () => {
-    const newPage = (currentPage + 1) % totalPages
-    handleManualNavigation(newPage)
-  }
-
-  const prevPage = () => {
-    const newPage = (currentPage - 1 + totalPages) % totalPages
-    handleManualNavigation(newPage)
-  }
-
-  const goToPage = (pageIndex: number) => {
-    handleManualNavigation(pageIndex)
-  }
-
-  const handleImageLoad = (imageName: string) => {
-    setImagesLoaded(prev => new Set([...prev, imageName]))
-  }
-
-  // Auto-advance functionality with proper cleanup
-  useEffect(() => {
-    if (!isAutoAdvanceActive) return
-
-    const interval = setInterval(() => {
-      setCurrentPage((prev) => (prev + 1) % totalPages)
-    }, 10000) // Auto-advance every 10 seconds
-    
-    return () => clearInterval(interval)
-  }, [totalPages, isAutoAdvanceActive])
-
-  // Cleanup timeout on unmount
-  useEffect(() => {
-    return () => {
-      if (timeoutId) {
-        clearTimeout(timeoutId)
-      }
-    }
-  }, [timeoutId])
+  const displayImages = showAll ? testimonialImages : testimonialImages.slice(0, 8)
 
   return (
-    <section id="testimonials" className="section-padding bg-white relative overflow-hidden">
+    <section id="testimonials" className="section-padding bg-neutral-50 relative overflow-hidden">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 right-20 w-64 h-64 bg-accent/10 rounded-full blur-2xl opacity-70 animate-pulse" />
@@ -120,7 +50,7 @@ export default function Testimonials() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
           variants={staggerContainer}
-          className="text-center mb-20"
+          className="text-center mb-16"
         >
           <motion.div
             variants={fadeUp}
@@ -147,84 +77,52 @@ export default function Testimonials() {
           </motion.p>
         </motion.div>
 
-        {/* Student Testimonial Gallery */}
+        {/* Simplified Testimonial Gallery */}
         <motion.div
-          key={currentPage}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={staggerContainer}
           className="mb-12"
         >
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
-            {currentImages.map((image, index) => (
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6">
+            {displayImages.map((image, index) => (
               <motion.div
-                key={`${currentPage}-${index}-${image}`}
+                key={`testimonial-${index}-${image}`}
                 variants={fadeUp}
-                className="group relative aspect-square overflow-hidden rounded-2xl cursor-pointer"
+                className="group relative aspect-square overflow-hidden rounded-2xl cursor-pointer bg-white shadow-md hover:shadow-xl transition-all duration-300"
                 onClick={() => setSelectedImage(image)}
-                whileHover={{ scale: 1.05 }}
+                whileHover={{ y: -5 }}
                 transition={{ duration: 0.3 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-yellow-300/10 to-orange-300/20 rounded-2xl blur opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <div className="relative z-10 h-full">
-                  <Image
-                    src={`/Student Testimonial/${image}`}
-                    alt={`Student testimonial ${index + 1}`}
-                    fill
-                    className="object-cover rounded-2xl transition-transform duration-300 group-hover:scale-110"
-                    sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
-                    onLoad={() => handleImageLoad(image)}
-                    priority={currentPage === 0 && index < 4}
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 rounded-2xl flex items-center justify-center">
-                    <ZoomIn className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" />
-                  </div>
-                  {/* Glow border effect */}
-                  <div className="absolute inset-0 border-2 border-transparent group-hover:border-accent/50 rounded-2xl transition-colors duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-br from-accent/20 via-yellow-300/10 to-orange-300/20 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
+                <Image
+                  src={`/Student Testimonial/${image}`}
+                  alt={`Student testimonial ${index + 1}`}
+                  fill
+                  className="object-cover rounded-2xl transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 rounded-2xl flex items-center justify-center z-20">
+                  <ZoomIn className="w-6 h-6 sm:w-8 sm:h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" />
                 </div>
+                {/* Enhanced glow border effect */}
+                <div className="absolute inset-0 border-2 border-transparent group-hover:border-accent/60 rounded-2xl transition-all duration-300 shadow-lg shadow-transparent group-hover:shadow-accent/20" />
               </motion.div>
             ))}
           </div>
 
-          {/* Navigation Controls */}
-          <div className="flex justify-center items-center mt-12 space-x-6">
-            <button
-              onClick={prevPage}
-              className="w-14 h-14 bg-gradient-to-r from-accent/10 to-yellow-300/10 border-2 border-accent/30 rounded-full flex items-center justify-center hover:from-accent/20 hover:to-yellow-300/20 hover:border-accent/50 transition-all duration-300 group glow-accent"
-              disabled={totalPages <= 1}
+          {/* Show More/Less Button */}
+          <div className="text-center mt-12">
+            <motion.button
+              onClick={() => setShowAll(!showAll)}
+              className="btn-accent inline-flex items-center space-x-3 group"
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.95 }}
             >
-              <ChevronLeft className="w-6 h-6 text-accent group-hover:scale-110 transition-transform" />
-            </button>
-            
-            <div className="flex space-x-3">
-              {Array.from({ length: totalPages }).map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToPage(index)}
-                  className={`w-4 h-4 rounded-full transition-all duration-300 ${
-                    index === currentPage 
-                      ? 'bg-accent scale-125 shadow-lg shadow-accent/30' 
-                      : 'bg-neutral-300 hover:bg-accent/50 hover:scale-110'
-                  }`}
-                />
-              ))}
-            </div>
-            
-            <button
-              onClick={nextPage}
-              className="w-14 h-14 bg-gradient-to-r from-accent/10 to-yellow-300/10 border-2 border-accent/30 rounded-full flex items-center justify-center hover:from-accent/20 hover:to-yellow-300/20 hover:border-accent/50 transition-all duration-300 group glow-accent"
-              disabled={totalPages <= 1}
-            >
-              <ChevronRight className="w-6 h-6 text-accent group-hover:scale-110 transition-transform" />
-            </button>
-          </div>
-
-          {/* Page indicator */}
-          <div className="text-center mt-6">
-            <span className="text-sm text-neutral-600 bg-white/50 backdrop-blur-sm px-4 py-2 rounded-full border border-neutral-200">
-              Showing {currentPage * imagesPerPage + 1}-{Math.min((currentPage + 1) * imagesPerPage, testimonialImages.length)} of {testimonialImages.length} testimonials
-            </span>
+              <span>{showAll ? 'Show Less' : `Show All ${testimonialImages.length} Testimonials`}</span>
+              <ChevronRight className={`w-5 h-5 transition-transform duration-300 ${showAll ? 'rotate-90' : 'group-hover:translate-x-1'}`} />
+            </motion.button>
           </div>
         </motion.div>
 
@@ -238,14 +136,14 @@ export default function Testimonials() {
         >
           <div className="card-gradient relative overflow-hidden">
             <div className="absolute inset-0 bg-gradient-to-br from-accent/5 via-transparent to-yellow-300/5" />
-            <div className="relative z-10 p-12">
-              <div className="w-24 h-24 bg-gradient-to-br from-accent/20 to-yellow-300/20 rounded-3xl flex items-center justify-center mx-auto mb-8 border border-accent/30 glow-accent">
-                <Star className="w-12 h-12 text-accent" />
+            <div className="relative z-10 p-8 sm:p-12">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-accent/20 to-yellow-300/20 rounded-3xl flex items-center justify-center mx-auto mb-6 sm:mb-8 border border-accent/30 glow-accent">
+                <Star className="w-10 h-10 sm:w-12 sm:h-12 text-accent" />
               </div>
-              <h3 className="text-3xl font-semibold text-gradient mb-6">
+              <h3 className="text-2xl sm:text-3xl font-semibold text-gradient mb-4 sm:mb-6">
                 Join Our Success Stories
               </h3>
-              <p className="text-xl text-neutral-600 mb-8 max-w-3xl mx-auto leading-relaxed text-balance">
+              <p className="text-lg sm:text-xl text-neutral-600 mb-6 sm:mb-8 max-w-3xl mx-auto leading-relaxed text-balance">
                 Ready to become our next success story? Join hundreds of students who have achieved their educational dreams with Candellar.
               </p>
               <motion.a
