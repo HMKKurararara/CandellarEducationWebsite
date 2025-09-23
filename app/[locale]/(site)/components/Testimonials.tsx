@@ -11,6 +11,7 @@ export default function Testimonials() {
   const t = useTranslations('testimonials')
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const [currentPage, setCurrentPage] = useState(0)
+  const [isAutoAdvanceActive, setIsAutoAdvanceActive] = useState(true)
   const imagesPerPage = 8
 
   // Real student testimonial images
@@ -42,18 +43,35 @@ export default function Testimonials() {
 
   const nextPage = () => {
     setCurrentPage((prev) => (prev + 1) % totalPages)
+    setIsAutoAdvanceActive(false)
+    // Resume auto-advance after 15 seconds of inactivity
+    setTimeout(() => setIsAutoAdvanceActive(true), 15000)
   }
 
   const prevPage = () => {
     setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages)
+    setIsAutoAdvanceActive(false)
+    // Resume auto-advance after 15 seconds of inactivity
+    setTimeout(() => setIsAutoAdvanceActive(true), 15000)
   }
 
+  const goToPage = (pageIndex: number) => {
+    setCurrentPage(pageIndex)
+    setIsAutoAdvanceActive(false)
+    // Resume auto-advance after 15 seconds of inactivity
+    setTimeout(() => setIsAutoAdvanceActive(true), 15000)
+  }
+
+  // Auto-advance functionality with proper cleanup
   useEffect(() => {
+    if (!isAutoAdvanceActive) return
+
     const interval = setInterval(() => {
-      nextPage()
+      setCurrentPage((prev) => (prev + 1) % totalPages)
     }, 10000) // Auto-advance every 10 seconds
+    
     return () => clearInterval(interval)
-  }, [totalPages])
+  }, [totalPages, isAutoAdvanceActive])
 
   return (
     <section id="testimonials" className="section-padding bg-white relative overflow-hidden">
@@ -148,7 +166,7 @@ export default function Testimonials() {
               {Array.from({ length: totalPages }).map((_, index) => (
                 <button
                   key={index}
-                  onClick={() => setCurrentPage(index)}
+                  onClick={() => goToPage(index)}
                   className={`w-4 h-4 rounded-full transition-all duration-300 ${
                     index === currentPage 
                       ? 'bg-accent scale-125 shadow-lg shadow-accent/30' 
