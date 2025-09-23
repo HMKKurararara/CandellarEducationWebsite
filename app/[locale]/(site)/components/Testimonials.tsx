@@ -12,6 +12,8 @@ export default function Testimonials() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null)
   const [currentPage, setCurrentPage] = useState(0)
   const [isAutoAdvanceActive, setIsAutoAdvanceActive] = useState(true)
+  const [timeoutId, setTimeoutId] = useState<NodeJS.Timeout | null>(null)
+  const [imagesLoaded, setImagesLoaded] = useState<Set<string>>(new Set())
   const imagesPerPage = 8
 
   // Real student testimonial images
@@ -41,25 +43,46 @@ export default function Testimonials() {
     (currentPage + 1) * imagesPerPage
   )
 
-  const nextPage = () => {
-    setCurrentPage((prev) => (prev + 1) % totalPages)
+  const handleManualNavigation = (newPage: number) => {
+    const newImages = testimonialImages.slice(
+      newPage * imagesPerPage,
+      (newPage + 1) * imagesPerPage
+    )
+    console.log(`Navigating to page ${newPage}, new images:`, newImages.length, newImages)
+    
+    // Clear existing timeout
+    if (timeoutId) {
+      clearTimeout(timeoutId)
+    }
+    
+    setCurrentPage(newPage)
     setIsAutoAdvanceActive(false)
-    // Resume auto-advance after 15 seconds of inactivity
-    setTimeout(() => setIsAutoAdvanceActive(true), 15000)
+    
+    // Set new timeout for resuming auto-advance
+    const newTimeoutId = setTimeout(() => {
+      setIsAutoAdvanceActive(true)
+      setTimeoutId(null)
+    }, 15000)
+    
+    setTimeoutId(newTimeoutId)
+  }
+
+  const nextPage = () => {
+    const newPage = (currentPage + 1) % totalPages
+    handleManualNavigation(newPage)
   }
 
   const prevPage = () => {
-    setCurrentPage((prev) => (prev - 1 + totalPages) % totalPages)
-    setIsAutoAdvanceActive(false)
-    // Resume auto-advance after 15 seconds of inactivity
-    setTimeout(() => setIsAutoAdvanceActive(true), 15000)
+    const newPage = (currentPage - 1 + totalPages) % totalPages
+    handleManualNavigation(newPage)
   }
 
   const goToPage = (pageIndex: number) => {
-    setCurrentPage(pageIndex)
-    setIsAutoAdvanceActive(false)
-    // Resume auto-advance after 15 seconds of inactivity
-    setTimeout(() => setIsAutoAdvanceActive(true), 15000)
+    handleManualNavigation(pageIndex)
+  }
+
+  const handleImageLoad = (imageName: string) => {
+    setImagesLoaded(prev => new Set([...prev, imageName]))
   }
 
   // Auto-advance functionality with proper cleanup
@@ -72,6 +95,15 @@ export default function Testimonials() {
     
     return () => clearInterval(interval)
   }, [totalPages, isAutoAdvanceActive])
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (timeoutId) {
+        clearTimeout(timeoutId)
+      }
+    }
+  }, [timeoutId])
 
   return (
     <section id="testimonials" className="section-padding bg-white relative overflow-hidden">
@@ -117,6 +149,7 @@ export default function Testimonials() {
 
         {/* Student Testimonial Gallery */}
         <motion.div
+          key={currentPage}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
@@ -126,7 +159,7 @@ export default function Testimonials() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             {currentImages.map((image, index) => (
               <motion.div
-                key={image}
+                key={`${currentPage}-${index}-${image}`}
                 variants={fadeUp}
                 className="group relative aspect-square overflow-hidden rounded-2xl cursor-pointer"
                 onClick={() => setSelectedImage(image)}
@@ -141,6 +174,8 @@ export default function Testimonials() {
                     fill
                     className="object-cover rounded-2xl transition-transform duration-300 group-hover:scale-110"
                     sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                    onLoad={() => handleImageLoad(image)}
+                    priority={currentPage === 0 && index < 4}
                   />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 rounded-2xl flex items-center justify-center">
                     <ZoomIn className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 drop-shadow-lg" />
