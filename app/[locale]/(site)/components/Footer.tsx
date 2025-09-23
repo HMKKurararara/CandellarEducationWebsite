@@ -107,14 +107,13 @@ export default function Footer() {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-primary mt-1 flex-shrink-0" />
                 <div className="text-neutral-300">
-                  <div className="font-medium">43/1003, Phoe Yar Zar St</div>
-                  <div>North Dagon, Yangon, Myanmar</div>
+                  {t('myanmarAddress')}
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
                 <a href="tel:+959988434188" className="text-neutral-300 hover:text-white transition-colors">
-                  {t('phone')}
+                  {t('myanmarPhone')}
                 </a>
               </div>
               <div className="flex items-center space-x-3">
@@ -139,14 +138,13 @@ export default function Footer() {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
                 <div className="text-neutral-300">
-                  <div className="font-medium">Singapore</div>
-                  <div>Full Support & Coordination</div>
+                  {t('singaporeAddress')}
                 </div>
               </div>
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-accent flex-shrink-0" />
-                <a href="tel:+6561234567" className="text-neutral-300 hover:text-white transition-colors">
-                  +65 6123 4567
+                <a href="tel:+6596344183" className="text-neutral-300 hover:text-white transition-colors">
+                  {t('singaporePhone')}
                 </a>
               </div>
               <div className="flex items-center space-x-3">

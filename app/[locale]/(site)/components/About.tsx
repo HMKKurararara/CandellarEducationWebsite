@@ -10,10 +10,17 @@ export default function About() {
 
   return (
     <section className="section-padding section-bg relative overflow-hidden">
-      {/* Optimized Background Elements */}
+      {/* Enhanced Background Elements with Education Icons */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-20 right-20 w-64 h-64 bg-primary/3 rounded-full blur-xl opacity-60" />
         <div className="absolute bottom-20 left-20 w-48 h-48 bg-accent/3 rounded-full blur-xl opacity-60" />
+        
+        {/* Education icons */}
+        <div className="education-bg-icon graduation-cap" style={{ top: '20%', left: '10%', transform: 'rotate(20deg)' }} />
+        <div className="education-bg-icon book" style={{ top: '35%', right: '8%', transform: 'rotate(-15deg)' }} />
+        <div className="education-bg-icon lightbulb" style={{ bottom: '25%', left: '12%', transform: 'rotate(35deg)' }} />
+        <div className="education-bg-icon atom" style={{ top: '60%', right: '20%', transform: 'rotate(-25deg)' }} />
+        <div className="education-bg-icon star" style={{ bottom: '15%', right: '35%', transform: 'rotate(45deg)' }} />
       </div>
 
       <div className="container-premium relative z-10">
@@ -70,10 +77,10 @@ export default function About() {
               </div>
               <div className="flex-1">
                 <h3 className="text-2xl font-semibold text-neutral-900 mb-4">
-                  Myanmar Office
+                  {t('myanmarOffice')}
                 </h3>
                 <p className="text-neutral-600 leading-relaxed text-lg">
-                  {t('address')}
+                  {t('myanmarAddress')}
                 </p>
               </div>
             </div>
@@ -92,10 +99,10 @@ export default function About() {
               </div>
               <div className="flex-1">
                 <h3 className="text-2xl font-semibold text-neutral-900 mb-4">
-                  Singapore Office
+                  {t('singaporeOffice')}
                 </h3>
                 <p className="text-neutral-600 leading-relaxed text-lg">
-                  Singapore
+                  {t('singaporeAddress')}
                 </p>
               </div>
             </div>

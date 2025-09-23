@@ -17,9 +17,15 @@
   },
   "about": {
     "title": "About Candellar",
-    "mm": "Myanmar Office: V5PJ+PRV, Pho Yarzar St, Yangon — AEIS & Singapore exam prep.",
-    "sg": "Singapore Office: 8 Somapah Rd, #01-310, Singapore 487372 — affordable tuition.",
-    "mission": "We provide accessible, credible, skills-based learning to help students succeed in Singapore's education system."
+    "mm": "Candellar specializes in AEIS, PSLE, and O-Level exam preparation with Singapore Ministry of Education (MOE) curriculum to help students excel in their educational journey.",
+    "mission": "Candellar Education is ready to make your children's educational dreams come true with practical teaching methods that will enhance students' qualifications to excel in the Singapore education system.",
+    "myanmarOffice": "Myanmar Office",
+    "singaporeOffice": "Singapore Office",
+    "myanmarAddress": "43/1003, Phoe Yar Zar St., North Dagon, Yangon, Myanmar",
+    "singaporeAddress": "8 Somapah Road, Singapore 487372",
+    "myanmarPhone": "+95 9 988 434188",
+    "singaporePhone": "+65 96344183",
+    "email": "contact@candellarsg.com"
   },
   "programs": {
     "title": "Our Programs",
@@ -92,8 +98,10 @@
   "footer": {
     "contact": "Contact Us",
     "email": "contact@candellarsg.com",
-    "phone": "+95 9 988 434188",
-    "address": "43/1003, Phoe Yar Zar St., North Dagon, Yangon, Myanmar",
+    "myanmarPhone": "+95 9 988 434188",
+    "singaporePhone": "+65 96344183",
+    "myanmarAddress": "43/1003, Phoe Yar Zar St., North Dagon, Yangon, Myanmar",
+    "singaporeAddress": "8 Somapah Road, Singapore 487372",
     "myanmar": "Myanmar Office",
     "singapore": "Singapore Office"
   }

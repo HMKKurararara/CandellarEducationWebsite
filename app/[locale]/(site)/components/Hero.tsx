@@ -15,12 +15,25 @@ export default function Hero() {
       {/* Enhanced Background Elements with Yellow/Orange Hues */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-white to-accent/10" />
       
-      {/* Glowing Background Elements */}
+      {/* Enhanced Background Elements with Education Icons */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {/* Glowing orbs */}
         <div className="absolute top-20 left-10 w-32 h-32 bg-accent/20 rounded-full blur-2xl opacity-70 animate-pulse" />
         <div className="absolute top-40 right-20 w-40 h-40 bg-yellow-300/20 rounded-full blur-3xl opacity-60 animate-pulse" style={{ animationDelay: '1s' }} />
         <div className="absolute bottom-40 left-1/4 w-24 h-24 bg-orange-300/20 rounded-full blur-xl opacity-80 animate-pulse" style={{ animationDelay: '2s' }} />
         <div className="absolute top-1/2 right-1/3 w-20 h-20 bg-amber-300/15 rounded-full blur-lg opacity-50" />
+        
+        {/* Education-themed background icons */}
+        <div className="education-bg-icon book" style={{ top: '15%', left: '8%', transform: 'rotate(15deg)' }} />
+        <div className="education-bg-icon pencil" style={{ top: '25%', right: '12%', transform: 'rotate(-20deg)' }} />
+        <div className="education-bg-icon star" style={{ top: '45%', left: '15%', transform: 'rotate(45deg)' }} />
+        <div className="education-bg-icon graduation-cap" style={{ top: '60%', right: '25%', transform: 'rotate(-10deg)' }} />
+        <div className="education-bg-icon lightbulb" style={{ top: '30%', left: '25%', transform: 'rotate(25deg)' }} />
+        <div className="education-bg-icon calculator" style={{ bottom: '20%', right: '15%', transform: 'rotate(-15deg)' }} />
+        <div className="education-bg-icon atom" style={{ bottom: '30%', left: '20%', transform: 'rotate(30deg)' }} />
+        <div className="education-bg-icon book" style={{ top: '70%', left: '5%', transform: 'rotate(-25deg)' }} />
+        <div className="education-bg-icon star" style={{ top: '10%', right: '30%', transform: 'rotate(-30deg)' }} />
+        <div className="education-bg-icon pencil" style={{ bottom: '15%', left: '35%', transform: 'rotate(40deg)' }} />
       </div>
       
       <div className="container-premium relative z-10">
@@ -32,10 +45,10 @@ export default function Hero() {
             animate="visible"
             className="text-center lg:text-left order-2 lg:order-1"
           >
-            {/* Logo */}
+            {/* Enhanced Logo */}
             <motion.div
               variants={fadeUp}
-              className="flex justify-center lg:justify-start mb-8"
+              className="flex justify-center lg:justify-center mb-12"
             >
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
@@ -43,8 +56,10 @@ export default function Hero() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="relative"
               >
-                <Logo size="lg" showText={false} />
-                <div className="absolute inset-0 bg-gradient-to-r from-accent/20 to-yellow-300/20 rounded-full blur-xl opacity-0 hover:opacity-100 transition-opacity duration-500" />
+                <div className="w-32 h-32 lg:w-40 lg:h-40 relative">
+                  <Logo size="xl" showText={false} />
+                  <div className="absolute inset-0 bg-gradient-to-r from-accent/30 to-yellow-300/30 rounded-full blur-2xl opacity-0 hover:opacity-100 transition-opacity duration-500 animate-pulse" />
+                </div>
               </motion.div>
             </motion.div>
             

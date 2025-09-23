@@ -257,6 +257,98 @@
                 linear-gradient(45deg, #fbbf24, #fcd34d, #f59e0b) border-box;
   }
   
+  /* Education-themed background elements */
+  .education-bg-icon {
+    position: absolute;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .education-bg-icon.book {
+    width: 24px;
+    height: 24px;
+    background: linear-gradient(45deg, #3b82f6, #1d4ed8);
+    clip-path: polygon(10% 0%, 90% 0%, 90% 75%, 75% 90%, 25% 90%, 10% 75%);
+    border-radius: 2px;
+  }
+  
+  .education-bg-icon.pencil {
+    width: 4px;
+    height: 32px;
+    background: linear-gradient(to bottom, #f59e0b 0%, #f59e0b 70%, #ef4444 70%, #ef4444 85%, #1f2937 85%);
+    border-radius: 2px;
+  }
+  
+  .education-bg-icon.star {
+    width: 20px;
+    height: 20px;
+    background: #fbbf24;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  }
+  
+  .education-bg-icon.graduation-cap {
+    width: 28px;
+    height: 20px;
+    background: linear-gradient(45deg, #1d4ed8, #3b82f6);
+    clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+    border-radius: 2px;
+  }
+  
+  .education-bg-icon.lightbulb {
+    width: 16px;
+    height: 24px;
+    background: linear-gradient(to bottom, #fbbf24 0%, #fbbf24 60%, #6b7280 60%);
+    border-radius: 8px 8px 4px 4px;
+  }
+  
+  .education-bg-icon.calculator {
+    width: 20px;
+    height: 28px;
+    background: linear-gradient(45deg, #374151, #4b5563);
+    border-radius: 4px;
+    position: relative;
+  }
+  
+  .education-bg-icon.calculator::before {
+    content: '';
+    position: absolute;
+    top: 4px;
+    left: 2px;
+    right: 2px;
+    height: 6px;
+    background: #1f2937;
+    border-radius: 2px;
+  }
+  
+  .education-bg-icon.atom {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #3b82f6;
+    border-radius: 50%;
+    position: relative;
+  }
+  
+  .education-bg-icon.atom::before,
+  .education-bg-icon.atom::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 1px solid #3b82f6;
+    border-radius: 50%;
+    top: -2px;
+    left: -2px;
+  }
+  
+  .education-bg-icon.atom::before {
+    transform: rotate(45deg);
+  }
+  
+  .education-bg-icon.atom::after {
+    transform: rotate(-45deg);
+  }
+  
   /* Premium Spacing */
   .section-padding {
     @apply py-20 lg:py-32;
