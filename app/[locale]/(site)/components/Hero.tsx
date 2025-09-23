@@ -87,18 +87,18 @@ export default function Hero() {
       </div>
       
       <div className="container-premium relative z-10">
-        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-screen py-20">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center min-h-screen py-16 lg:py-20">
           {/* Content Section */}
           <motion.div
             variants={staggerContainer}
             initial="hidden"
             animate="visible"
-            className="text-center lg:text-left order-2 lg:order-1"
+            className="text-center lg:text-left order-1 lg:order-1"
           >
             {/* Enhanced Logo */}
             <motion.div
               variants={fadeUp}
-              className="flex justify-center lg:justify-center mb-12"
+              className="flex justify-center mb-8 lg:mb-12"
             >
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
@@ -106,7 +106,7 @@ export default function Hero() {
                 transition={{ duration: 0.8, ease: "easeOut" }}
                 className="relative"
               >
-                <div className="w-32 h-32 lg:w-40 lg:h-40 relative">
+                <div className="w-24 h-24 sm:w-28 sm:h-28 lg:w-36 lg:h-36 relative">
                   <Logo size="xl" showText={false} />
                   <div className="absolute inset-0 bg-gradient-to-r from-accent/30 to-yellow-300/30 rounded-full blur-2xl opacity-0 hover:opacity-100 transition-opacity duration-500 animate-pulse" />
                 </div>
@@ -137,7 +137,7 @@ export default function Hero() {
             {/* Enhanced CTA Buttons */}
             <motion.div
               variants={fadeUp}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-12"
+              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center mb-8 lg:mb-12"
             >
               <motion.a
                 href="/register"
@@ -170,7 +170,7 @@ export default function Hero() {
             {/* Enhanced Stats */}
             <motion.div
               variants={fadeUp}
-              className="grid grid-cols-3 gap-6 max-w-md mx-auto lg:mx-0"
+              className="grid grid-cols-3 gap-4 sm:gap-6 max-w-sm sm:max-w-md mx-auto lg:mx-0"
             >
               {[
                 { icon: Award, label: "8+ Years", sublabel: "Experience" },
@@ -184,11 +184,11 @@ export default function Hero() {
                   transition={{ duration: 0.8, delay: 1 + index * 0.2 }}
                   className="text-center group"
                 >
-                  <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-br from-accent/20 to-yellow-300/20 rounded-xl mb-3 border border-accent/30 group-hover:shadow-lg group-hover:shadow-accent/20 transition-all duration-300">
-                    <stat.icon className="w-6 h-6 text-accent" />
+                  <div className="inline-flex items-center justify-center w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-accent/20 to-yellow-300/20 rounded-xl mb-2 sm:mb-3 border border-accent/30 group-hover:shadow-lg group-hover:shadow-accent/20 transition-all duration-300">
+                    <stat.icon className="w-5 h-5 sm:w-6 sm:h-6 text-accent" />
                   </div>
-                  <div className="text-2xl font-bold text-gradient mb-1">{stat.label}</div>
-                  <div className="text-neutral-600 font-medium text-sm">{stat.sublabel}</div>
+                  <div className="text-xl sm:text-2xl font-bold text-gradient mb-1">{stat.label}</div>
+                  <div className="text-neutral-600 font-medium text-xs sm:text-sm">{stat.sublabel}</div>
                 </motion.div>
               ))}
             </motion.div>
@@ -199,15 +199,15 @@ export default function Hero() {
             initial={{ opacity: 0, x: 50 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.5 }}
-            className="order-1 lg:order-2 relative"
+            className="order-2 lg:order-2 relative"
           >
-            <div className="relative rounded-3xl overflow-hidden shadow-2xl group">
+            <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl group max-w-lg mx-auto lg:max-w-none">
               {/* Glowing border effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-accent via-yellow-300 to-orange-300 rounded-3xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
-              <div className="absolute inset-[2px] bg-white rounded-3xl"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-accent via-yellow-300 to-orange-300 rounded-2xl sm:rounded-3xl blur opacity-75 group-hover:opacity-100 transition-opacity duration-500 animate-pulse"></div>
+              <div className="absolute inset-[2px] bg-white rounded-2xl sm:rounded-3xl"></div>
               
               {/* Video container */}
-              <div className="relative z-10 aspect-video rounded-3xl overflow-hidden">
+              <div className="relative z-10 aspect-video rounded-2xl sm:rounded-3xl overflow-hidden">
                 <video
                   className="w-full h-full object-cover"
                   autoPlay
@@ -228,8 +228,8 @@ export default function Hero() {
             </div>
             
             {/* Floating elements around video */}
-            <div className="absolute -top-4 -right-4 w-8 h-8 bg-accent rounded-full blur-sm opacity-60 animate-bounce"></div>
-            <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-yellow-300 rounded-full blur-sm opacity-50 animate-bounce" style={{ animationDelay: '1s' }}></div>
+            <div className="hidden sm:block absolute -top-4 -right-4 w-8 h-8 bg-accent rounded-full blur-sm opacity-60 animate-bounce"></div>
+            <div className="hidden sm:block absolute -bottom-4 -left-4 w-6 h-6 bg-yellow-300 rounded-full blur-sm opacity-50 animate-bounce" style={{ animationDelay: '1s' }}></div>
           </motion.div>
         </div>
       </div>
