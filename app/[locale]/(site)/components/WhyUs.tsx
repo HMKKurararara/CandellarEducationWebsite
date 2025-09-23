@@ -83,10 +83,10 @@ export default function WhyUs() {
         >
           <motion.div
             variants={fadeUp}
-            className="inline-flex items-center px-6 py-3 rounded-full bg-primary/10 border border-primary/20 mb-8"
+            className="inline-flex items-center px-6 py-3 rounded-full bg-gradient-to-r from-accent/10 to-yellow-300/10 border border-accent/30 mb-8 glow-accent"
           >
-            <Sparkles className="w-5 h-5 text-primary mr-2" />
-            <span className="text-primary font-semibold text-sm tracking-wide uppercase">
+            <Sparkles className="w-5 h-5 text-accent mr-2" />
+            <span className="text-accent font-semibold text-sm tracking-wide uppercase text-glow">
               Why Choose Us
             </span>
           </motion.div>

@@ -104,14 +104,16 @@
 }
 
 @layer components {
-  /* Optimized Button Styles */
+  /* Enhanced Button Styles with Yellow/Orange Glow */
   .btn-primary {
-    @apply relative bg-gradient-to-r from-primary to-primary-dark text-white px-10 py-5 rounded-full font-semibold text-lg tracking-wide shadow-large hover:shadow-glow focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-200 overflow-hidden;
+    @apply relative bg-gradient-to-r from-primary to-primary-dark text-white px-10 py-5 rounded-full font-semibold text-lg tracking-wide shadow-large focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-200 overflow-hidden;
     will-change: transform;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 20px rgba(251, 191, 36, 0.3);
   }
   
   .btn-primary:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 0 30px rgba(251, 191, 36, 0.5);
   }
   
   .btn-primary:active {
@@ -128,12 +130,14 @@
   }
   
   .btn-accent {
-    @apply relative bg-gradient-to-r from-accent to-accent-dark text-primary px-10 py-5 rounded-full font-semibold text-lg tracking-wide shadow-large hover:shadow-glow-accent focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-200 overflow-hidden;
+    @apply relative bg-gradient-to-r from-accent to-accent-dark text-primary px-10 py-5 rounded-full font-semibold text-lg tracking-wide shadow-large focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all duration-200 overflow-hidden;
     will-change: transform;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1), 0 0 25px rgba(251, 191, 36, 0.4), 0 0 50px rgba(255, 193, 7, 0.2);
   }
   
   .btn-accent:hover {
-    transform: translateY(-1px);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 0 35px rgba(251, 191, 36, 0.6), 0 0 70px rgba(255, 193, 7, 0.3);
   }
   
   .btn-outline {
@@ -158,16 +162,18 @@
   
   .card-premium:hover {
     transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 20px rgba(251, 191, 36, 0.2);
   }
   
   .card-hover {
-    @apply hover:shadow-large hover:shadow-primary/10 hover:border-primary/20;
+    @apply hover:shadow-large hover:border-primary/20;
     transition: all 0.3s ease;
     will-change: transform, box-shadow;
   }
   
   .card-hover:hover {
     transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 0 15px rgba(251, 191, 36, 0.15);
   }
   
   .card-gradient {
@@ -220,7 +226,7 @@
     @apply bg-gradient-to-r from-accent to-accent-dark bg-clip-text text-transparent;
   }
   
-  /* Premium Effects */
+  /* Enhanced Premium Effects */
   .glass-effect {
     @apply backdrop-blur-md bg-white/80 border border-white/20 shadow-soft;
   }
@@ -231,6 +237,24 @@
   
   .glow-effect {
     @apply shadow-glow;
+  }
+  
+  .glow-accent {
+    box-shadow: 0 0 20px rgba(251, 191, 36, 0.3), 0 0 40px rgba(255, 193, 7, 0.2);
+  }
+  
+  .glow-accent:hover {
+    box-shadow: 0 0 30px rgba(251, 191, 36, 0.5), 0 0 60px rgba(255, 193, 7, 0.3);
+  }
+  
+  .text-glow {
+    text-shadow: 0 0 10px rgba(251, 191, 36, 0.3), 0 0 20px rgba(255, 193, 7, 0.2);
+  }
+  
+  .border-glow {
+    border: 2px solid transparent;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(45deg, #fbbf24, #fcd34d, #f59e0b) border-box;
   }
   
   /* Premium Spacing */
