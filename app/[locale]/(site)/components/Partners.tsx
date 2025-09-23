@@ -8,39 +8,43 @@ import { staggerContainer, fadeUp } from '@/lib/animations'
 export default function Partners() {
   const t = useTranslations('partners')
 
-  // Placeholder partners - will be replaced with actual logos
+  // Educational collaborations and standards we follow
   const partners = [
     {
-      name: 'Cambridge Assessment',
-      description: 'Official Cambridge English Qualifications',
-      icon: Award,
-      color: 'from-primary/10 to-primary/20',
-      iconColor: 'text-primary',
-      borderColor: 'border-primary/20'
+      name: 'British Council',
+      description: 'Certified Training Partner for English Language Education',
+      icon: Globe,
+      color: 'from-blue-50 to-blue-100',
+      iconColor: 'text-blue-600',
+      borderColor: 'border-blue-200',
+      logo: '/logos/british-council-logo.png' // Placeholder for actual logo
     },
     {
-      name: 'British Council',
-      description: 'International Education and Cultural Relations',
-      icon: Globe,
-      color: 'from-accent/10 to-accent/20',
-      iconColor: 'text-accent-dark',
-      borderColor: 'border-accent/20'
+      name: 'Cambridge Assessment',
+      description: 'Authorized Cambridge English Partner Centre',
+      icon: Award,
+      color: 'from-green-50 to-green-100',
+      iconColor: 'text-green-600',
+      borderColor: 'border-green-200',
+      logo: '/logos/cambridge-logo.png' // Placeholder for actual logo
+    },
+    {
+      name: 'MES-Dawei',
+      description: 'Singapore Math Olympiad School Partnership',
+      icon: Users,
+      color: 'from-purple-50 to-purple-100',
+      iconColor: 'text-purple-600',
+      borderColor: 'border-purple-200',
+      logo: '/logos/mes-dawei-logo.png' // Placeholder for actual logo
     },
     {
       name: 'Singapore MOE',
-      description: 'Ministry of Education Singapore',
+      description: 'Following Ministry of Education Singapore Guidelines',
       icon: GraduationCap,
-      color: 'from-neutral-100 to-neutral-200',
-      iconColor: 'text-neutral-700',
-      borderColor: 'border-neutral-200'
-    },
-    {
-      name: 'Educational Publishers',
-      description: 'Official Singapore Textbook Partners',
-      icon: BookOpen,
-      color: 'from-primary/10 to-primary/20',
-      iconColor: 'text-primary',
-      borderColor: 'border-primary/20'
+      color: 'from-red-50 to-red-100',
+      iconColor: 'text-red-600',
+      borderColor: 'border-red-200',
+      logo: '/logos/singapore-moe-logo.png' // Placeholder for actual logo
     }
   ]
 
@@ -74,14 +78,14 @@ export default function Partners() {
             variants={fadeUp}
             className="text-gradient mb-8 text-balance"
           >
-            Trusted by Leading Educational Organizations
+            Our Educational Collaborations
           </motion.h2>
           
           <motion.p
             variants={fadeUp}
             className="text-lead max-w-4xl mx-auto text-balance"
           >
-            We work with prestigious educational institutions and organizations to provide the highest quality education and resources for our students.
+            We collaborate with leading educational organizations and follow international standards to provide the highest quality education for our students.
           </motion.p>
         </motion.div>
 
@@ -103,6 +107,7 @@ export default function Partners() {
               
               <div className="relative z-10">
                 <div className={`w-20 h-20 bg-gradient-to-br ${partner.color} ${partner.borderColor} border rounded-3xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300`}>
+                  {/* Logo will be added here when available */}
                   <partner.icon className={`w-10 h-10 ${partner.iconColor}`} />
                 </div>
                 <h3 className="text-xl font-semibold text-neutral-900 mb-3">
@@ -111,6 +116,11 @@ export default function Partners() {
                 <p className="text-neutral-600 leading-relaxed text-sm">
                   {partner.description}
                 </p>
+                <div className="mt-4 text-xs text-neutral-500">
+                  {partner.name === 'Singapore MOE' ? 'Following Guidelines' : 
+                   partner.name === 'MES-Dawei' ? 'Educational Partnership' : 
+                   'Certified Partner'}
+                </div>
               </div>
             </motion.div>
           ))}
@@ -131,18 +141,18 @@ export default function Partners() {
                 <Users className="w-12 h-12 text-primary" />
               </div>
               <h3 className="text-3xl font-semibold text-gradient mb-6">
-                Partner with Us
+                Educational Excellence Through Collaboration
               </h3>
               <p className="text-xl text-neutral-600 mb-8 max-w-3xl mx-auto leading-relaxed text-balance">
-                Interested in partnering with Candellar? We're always looking to collaborate with educational institutions and organizations that share our commitment to excellence.
+                Our partnerships and adherence to international standards ensure that students receive world-class education and preparation for Singapore's academic system.
               </p>
               <motion.a
-                href="mailto:partnerships@candellarsg.com"
+                href="mailto:contact@candellarsg.com"
                 className="btn-primary inline-flex items-center space-x-3 group"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <span>Contact Our Partnership Team</span>
+                <span>Learn More About Our Programs</span>
               </motion.a>
             </div>
           </div>

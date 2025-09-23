@@ -114,13 +114,13 @@ export default function Footer() {
               <div className="flex items-center space-x-3">
                 <Phone className="w-5 h-5 text-primary flex-shrink-0" />
                 <a href="tel:+959988434188" className="text-neutral-300 hover:text-white transition-colors">
-                  +95 9 988 434188
+                  {t('phone')}
                 </a>
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                <a href="mailto:info@candellarmm.com" className="text-neutral-300 hover:text-white transition-colors">
-                  info@candellarmm.com
+                <a href="mailto:contact@candellarsg.com" className="text-neutral-300 hover:text-white transition-colors">
+                  {t('email')}
                 </a>
               </div>
             </div>
@@ -151,8 +151,8 @@ export default function Footer() {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-accent flex-shrink-0" />
-                <a href="mailto:info@candellarsg.com" className="text-neutral-300 hover:text-white transition-colors">
-                  info@candellarsg.com
+                <a href="mailto:contact@candellarsg.com" className="text-neutral-300 hover:text-white transition-colors">
+                  {t('email')}
                 </a>
               </div>
             </div>
