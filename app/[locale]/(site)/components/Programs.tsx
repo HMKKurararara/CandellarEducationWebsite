@@ -4,6 +4,14 @@ import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 import { BookOpen, Award, GraduationCap, Sparkles, CheckCircle, ArrowRight } from 'lucide-react'
 import { staggerContainer, fadeUp } from '@/lib/animations'
+import { 
+  CalculatorDoodle, 
+  PencilDoodle, 
+  BookStackDoodle, 
+  StarDoodle,
+  GlobeDoodle,
+  DNADoodle
+} from './EducationDoodles'
 
 export default function Programs() {
   const t = useTranslations('programs')
@@ -40,10 +48,36 @@ export default function Programs() {
 
   return (
     <section id="programs" className="section-padding bg-white relative overflow-hidden">
-      {/* Optimized Background Elements */}
+      {/* Enhanced Background Elements with Education Doodles */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className="absolute top-40 left-10 w-72 h-72 bg-primary/3 rounded-full blur-xl opacity-60" />
         <div className="absolute bottom-40 right-10 w-64 h-64 bg-accent/3 rounded-full blur-xl opacity-60" />
+        
+        {/* Education Doodles */}
+        <CalculatorDoodle 
+          className="large floating" 
+          style={{ top: '15%', left: '12%', transform: 'rotate(25deg)' }} 
+        />
+        <PencilDoodle 
+          className="floating-delayed" 
+          style={{ top: '30%', right: '15%', transform: 'rotate(-30deg)' }} 
+        />
+        <BookStackDoodle 
+          className="floating-slow" 
+          style={{ bottom: '20%', left: '18%', transform: 'rotate(15deg)' }} 
+        />
+        <StarDoodle 
+          className="small floating" 
+          style={{ top: '60%', right: '25%', transform: 'rotate(-45deg)' }} 
+        />
+        <GlobeDoodle 
+          className="floating-delayed" 
+          style={{ bottom: '35%', right: '8%', transform: 'rotate(35deg)' }} 
+        />
+        <DNADoodle 
+          className="small floating-slow" 
+          style={{ top: '75%', left: '35%', transform: 'rotate(-20deg)' }} 
+        />
       </div>
 
       <div className="container-premium relative z-10">

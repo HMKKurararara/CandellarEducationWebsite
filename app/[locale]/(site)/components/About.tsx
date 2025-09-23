@@ -4,6 +4,15 @@ import { useTranslations } from 'next-intl'
 import { motion } from 'framer-motion'
 import { MapPin, Building2, Target, Sparkles, Award, Users } from 'lucide-react'
 import { fadeUp, staggerContainer } from '@/lib/animations'
+import { 
+  BookStackDoodle, 
+  GlobeDoodle, 
+  StarDoodle, 
+  AtomDoodle, 
+  LightBulbDoodle,
+  GraduationCapDoodle,
+  MathFormulaDoodle
+} from './EducationDoodles'
 
 export default function About() {
   const t = useTranslations('about')
@@ -15,12 +24,35 @@ export default function About() {
         <div className="absolute top-20 right-20 w-64 h-64 bg-primary/3 rounded-full blur-xl opacity-60" />
         <div className="absolute bottom-20 left-20 w-48 h-48 bg-accent/3 rounded-full blur-xl opacity-60" />
         
-        {/* Education icons */}
-        <div className="education-bg-icon graduation-cap" style={{ top: '20%', left: '10%', transform: 'rotate(20deg)' }} />
-        <div className="education-bg-icon book" style={{ top: '35%', right: '8%', transform: 'rotate(-15deg)' }} />
-        <div className="education-bg-icon lightbulb" style={{ bottom: '25%', left: '12%', transform: 'rotate(35deg)' }} />
-        <div className="education-bg-icon atom" style={{ top: '60%', right: '20%', transform: 'rotate(-25deg)' }} />
-        <div className="education-bg-icon star" style={{ bottom: '15%', right: '35%', transform: 'rotate(45deg)' }} />
+        {/* Enhanced Education Doodles */}
+        <GraduationCapDoodle 
+          className="large floating" 
+          style={{ top: '20%', left: '10%', transform: 'rotate(20deg)' }} 
+        />
+        <BookStackDoodle 
+          className="floating-delayed" 
+          style={{ top: '35%', right: '8%', transform: 'rotate(-15deg)' }} 
+        />
+        <LightBulbDoodle 
+          className="floating-slow" 
+          style={{ bottom: '25%', left: '12%', transform: 'rotate(35deg)' }} 
+        />
+        <AtomDoodle 
+          className="large floating-delayed" 
+          style={{ top: '60%', right: '20%', transform: 'rotate(-25deg)' }} 
+        />
+        <StarDoodle 
+          className="small floating" 
+          style={{ bottom: '15%', right: '35%', transform: 'rotate(45deg)' }} 
+        />
+        <GlobeDoodle 
+          className="floating-slow" 
+          style={{ top: '75%', left: '25%', transform: 'rotate(-35deg)' }} 
+        />
+        <MathFormulaDoodle 
+          className="small floating-delayed" 
+          style={{ top: '40%', left: '30%', transform: 'rotate(55deg)' }} 
+        />
       </div>
 
       <div className="container-premium relative z-10">

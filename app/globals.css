@@ -265,6 +265,48 @@
     z-index: 1;
   }
   
+  /* SVG Education Doodles */
+  .education-doodle {
+    position: absolute;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 1;
+    width: 40px;
+    height: 40px;
+  }
+  
+  .education-doodle.large {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .education-doodle.small {
+    width: 25px;
+    height: 25px;
+  }
+  
+  /* Floating animation for doodles */
+  .education-doodle.floating {
+    animation: doodleFloat 8s ease-in-out infinite;
+  }
+  
+  .education-doodle.floating-delayed {
+    animation: doodleFloat 8s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+  
+  .education-doodle.floating-slow {
+    animation: doodleFloat 12s ease-in-out infinite;
+    animation-delay: 4s;
+  }
+  
+  @keyframes doodleFloat {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    25% { transform: translateY(-10px) rotate(2deg); }
+    50% { transform: translateY(-5px) rotate(-1deg); }
+    75% { transform: translateY(-8px) rotate(1deg); }
+  }
+  
   .education-bg-icon.book {
     width: 24px;
     height: 24px;

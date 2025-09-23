@@ -5,6 +5,18 @@ import { motion } from 'framer-motion'
 import { ArrowRight, BookOpen, Sparkles, Award, Users } from 'lucide-react'
 import { staggerContainer, fadeUp } from '@/lib/animations'
 import Logo from './Logo'
+import { 
+  LightBulbDoodle, 
+  MathFormulaDoodle, 
+  AtomDoodle, 
+  BookStackDoodle, 
+  GraduationCapDoodle, 
+  CalculatorDoodle, 
+  PencilDoodle, 
+  GlobeDoodle, 
+  DNADoodle, 
+  StarDoodle 
+} from './EducationDoodles'
 
 export default function Hero() {
   const t = useTranslations('hero')
@@ -23,17 +35,55 @@ export default function Hero() {
         <div className="absolute bottom-40 left-1/4 w-24 h-24 bg-orange-300/20 rounded-full blur-xl opacity-80 animate-pulse" style={{ animationDelay: '2s' }} />
         <div className="absolute top-1/2 right-1/3 w-20 h-20 bg-amber-300/15 rounded-full blur-lg opacity-50" />
         
-        {/* Education-themed background icons */}
-        <div className="education-bg-icon book" style={{ top: '15%', left: '8%', transform: 'rotate(15deg)' }} />
-        <div className="education-bg-icon pencil" style={{ top: '25%', right: '12%', transform: 'rotate(-20deg)' }} />
-        <div className="education-bg-icon star" style={{ top: '45%', left: '15%', transform: 'rotate(45deg)' }} />
-        <div className="education-bg-icon graduation-cap" style={{ top: '60%', right: '25%', transform: 'rotate(-10deg)' }} />
-        <div className="education-bg-icon lightbulb" style={{ top: '30%', left: '25%', transform: 'rotate(25deg)' }} />
-        <div className="education-bg-icon calculator" style={{ bottom: '20%', right: '15%', transform: 'rotate(-15deg)' }} />
-        <div className="education-bg-icon atom" style={{ bottom: '30%', left: '20%', transform: 'rotate(30deg)' }} />
-        <div className="education-bg-icon book" style={{ top: '70%', left: '5%', transform: 'rotate(-25deg)' }} />
-        <div className="education-bg-icon star" style={{ top: '10%', right: '30%', transform: 'rotate(-30deg)' }} />
-        <div className="education-bg-icon pencil" style={{ bottom: '15%', left: '35%', transform: 'rotate(40deg)' }} />
+        {/* Enhanced SVG Education Doodles */}
+        <LightBulbDoodle 
+          className="large floating" 
+          style={{ top: '15%', left: '8%', transform: 'rotate(15deg)' }} 
+        />
+        <PencilDoodle 
+          className="floating-delayed" 
+          style={{ top: '25%', right: '12%', transform: 'rotate(-20deg)' }} 
+        />
+        <StarDoodle 
+          className="small floating-slow" 
+          style={{ top: '45%', left: '15%', transform: 'rotate(45deg)' }} 
+        />
+        <GraduationCapDoodle 
+          className="large floating" 
+          style={{ top: '60%', right: '25%', transform: 'rotate(-10deg)' }} 
+        />
+        <MathFormulaDoodle 
+          className="floating-delayed" 
+          style={{ top: '30%', left: '25%', transform: 'rotate(25deg)' }} 
+        />
+        <CalculatorDoodle 
+          className="floating-slow" 
+          style={{ bottom: '20%', right: '15%', transform: 'rotate(-15deg)' }} 
+        />
+        <AtomDoodle 
+          className="large floating" 
+          style={{ bottom: '30%', left: '20%', transform: 'rotate(30deg)' }} 
+        />
+        <BookStackDoodle 
+          className="floating-delayed" 
+          style={{ top: '70%', left: '5%', transform: 'rotate(-25deg)' }} 
+        />
+        <DNADoodle 
+          className="small floating-slow" 
+          style={{ top: '10%', right: '30%', transform: 'rotate(-30deg)' }} 
+        />
+        <GlobeDoodle 
+          className="floating" 
+          style={{ bottom: '15%', left: '35%', transform: 'rotate(40deg)' }} 
+        />
+        <StarDoodle 
+          className="small floating-delayed" 
+          style={{ top: '80%', right: '8%', transform: 'rotate(60deg)' }} 
+        />
+        <LightBulbDoodle 
+          className="small floating-slow" 
+          style={{ bottom: '40%', right: '35%', transform: 'rotate(-45deg)' }} 
+        />
       </div>
       
       <div className="container-premium relative z-10">
