@@ -19,7 +19,7 @@ export const content = {
   programmes: () => getContent<Card[]>(`*[_type=='programme']|order(order asc){_id,title,'slug':slug.current,summary,details,'image':image,'gallery':gallery}`, demoProgrammes),
   resources: () => getContent<Card[]>(`*[_type=='resource']|order(featured desc,title asc){_id,title,'slug':slug.current,description,category,'image':coverImage,'url':coalesce(file.asset->url,externalUrl)}`, demoResources),
   posts: () => getContent<Card[]>(`*[_type=='post']|order(publishedAt desc){_id,title,'slug':slug.current,excerpt,'image':coverImage}`, demoPosts),
-  videos: () => getContent<Card[]>(`*[_type=='video']|order(publishedAt desc){_id,title,'slug':slug.current,summary,'image':thumbnail,'url':videoUrl}`, demoVideos),
+  videos: () => getContent<Card[]>(`*[_type=='video']|order(publishedAt desc){_id,title,'slug':slug.current,summary,'image':thumbnail,'url':coalesce(videoFile.asset->url,videoUrl)}`, demoVideos),
   work: () => getContent<Card[]>(`*[_type=='studentWork' && guardianConsent==true]|order(featured desc){_id,title,'slug':slug.current,description,attribution,'image':media,guardianConsent}`, demoWork),
   team: () => getContent<Card[]>(`*[_type=='teamMember']|order(order asc){_id,'title':name,name,role,bio,linkedin,'slug':slug.current,'image':portrait}`, demoTeam),
   featured: () => getContent<Card[]>(`*[_type in ['programme','resource','post','video','studentWork','teamMember'] && featured==true && (_type != 'studentWork' || guardianConsent==true)]|order(_updatedAt desc)[0...6]{_id,_type,'title':coalesce(title,name),'summary':coalesce(summary,description,excerpt,role),'image':coalesce(image,coverImage,thumbnail,media,portrait)}`, []),

@@ -24,8 +24,22 @@ function ProgrammeCards({ items, onChoose }: { items: Card[]; onChoose: (item: C
   return <div className="tab-card-grid">{items.map(item => <button className="tab-card programme-card" onClick={() => onChoose(item)} key={item._id}>{item.image ? <img src={urlFor(item.image) || ''} alt=""/> : <div className="tab-card-icon"><GraduationCap size={22}/></div>}<div><h3>{item.title}</h3><p>{item.summary}</p><span className="card-action">Explore programme <ArrowRight size={15}/></span></div></button>)}</div>
 }
 
+function embedUrl(url?: string) {
+  if (!url) return undefined
+  if (url.includes('facebook.com')) return `https://www.facebook.com/plugins/video.php?href=${encodeURIComponent(url)}&show_text=false&width=500`
+  if (url.includes('youtube.com/watch')) return `https://www.youtube.com/embed/${new URL(url).searchParams.get('v')}`
+  if (url.includes('youtu.be/')) return `https://www.youtube.com/embed/${url.split('/').pop()?.split('?')[0]}`
+  if (url.includes('vimeo.com/')) return `https://player.vimeo.com/video/${url.split('/').pop()?.split('?')[0]}`
+  return undefined
+}
+
+function ReelPlayers({ videos }: { videos: Card[] }) {
+  if (!videos.length) return <div className="empty-panel">New videos are coming soon.</div>
+  return <div className="reel-grid">{videos.map(video => { const embed = embedUrl(video.url); const directFile = Boolean(video.url && (video.url.includes('cdn.sanity.io/files') || /\.(mp4|webm|mov)(\?|$)/i.test(video.url))); return <article className="reel-player" key={video._id}>{directFile ? <video controls playsInline preload="metadata" poster={urlFor(video.image)}><source src={video.url} type="video/mp4"/></video> : embed ? <iframe src={embed} title={video.title || 'Candellar video'} allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowFullScreen/> : <div className="reel-unavailable"><Play size={26}/><span>Video unavailable</span></div>}<div><h3>{video.title}</h3>{video.summary && <p>{video.summary}</p>}</div></article> })}</div>
+}
+
 function ContentHub({ posts, videos, testimonials }: { posts: Card[]; videos: Card[]; testimonials: Card[] }) {
-  return <div className="content-hub"><section><h2>Latest updates</h2><ContentCards items={posts} kind="insight"/></section><section><h2>Reels & videos</h2><ContentCards items={videos} kind="video"/></section>{testimonials.length > 0 && <section><h2>What families say</h2><div className="testimonial-grid">{testimonials.map(item => <blockquote className="testimonial-card" key={item._id}><p>“{item.quote}”</p><footer>{item.name || 'Candellar family'}</footer></blockquote>)}</div></section>}</div>
+  return <div className="content-hub"><section><h2>Latest updates</h2><ContentCards items={posts} kind="insight"/></section><section><h2>Reels & videos</h2><ReelPlayers videos={videos}/></section>{testimonials.length > 0 && <section><h2>What families say</h2><div className="testimonial-grid">{testimonials.map(item => <blockquote className="testimonial-card" key={item._id}><p>“{item.quote}”</p><footer>{item.name || 'Candellar family'}</footer></blockquote>)}</div></section>}</div>
 }
 
 export default function LandingTabs({ settings, programmes, resources, posts, videos, work, team, facebook, featured, testimonials }: { settings: SiteSettings; programmes: Card[]; resources: Card[]; posts: Card[]; videos: Card[]; work: Card[]; team: Card[]; facebook: FeaturedFacebook[]; featured: Card[]; testimonials: Card[] }) {
