@@ -1,6 +1,6 @@
 import { getContent } from './sanity'
 
-export type Card = { _id:string; title?:string; slug?:string; summary?:string; description?:string; excerpt?:string; seoTitle?:string; seoDescription?:string; image?:unknown; url?:string; category?:string; attribution?:string; role?:string; bio?:string; linkedin?:string; name?:string; quote?:string; guardianConsent?:boolean }
+export type Card = { _id:string; _type?:string; title?:string; slug?:string; summary?:string; description?:string; excerpt?:string; seoTitle?:string; seoDescription?:string; image?:unknown; url?:string; category?:string; attribution?:string; role?:string; bio?:string; linkedin?:string; name?:string; quote?:string; guardianConsent?:boolean }
 type Settings = { title?:string; heroHeadline?:string; heroText?:string; admissionsEmail?:string; phone?:string; address?:string; facebookUrl?:string }
 export const demoProgrammes: Card[] = [
   {_id:'aeis',title:'AEIS & S-AEIS preparation',summary:'Focused academic preparation and practical guidance for Singapore school admissions.'},
@@ -22,6 +22,7 @@ export const content = {
   videos: () => getContent<Card[]>(`*[_type=='video']|order(publishedAt desc){_id,title,'slug':slug.current,summary,'image':thumbnail,'url':videoUrl}`, demoVideos),
   work: () => getContent<Card[]>(`*[_type=='studentWork' && guardianConsent==true]|order(featured desc){_id,title,'slug':slug.current,description,attribution,'image':media,guardianConsent}`, demoWork),
   team: () => getContent<Card[]>(`*[_type=='teamMember']|order(order asc){_id,'title':name,name,role,bio,linkedin,'slug':slug.current,'image':portrait}`, demoTeam),
+  featured: () => getContent<Card[]>(`*[_type in ['programme','resource','post','video','studentWork','teamMember'] && featured==true && (_type != 'studentWork' || guardianConsent==true)]|order(_updatedAt desc)[0...6]{_id,_type,'title':coalesce(title,name),'summary':coalesce(summary,description,excerpt,role),'image':coalesce(image,coverImage,thumbnail,media,portrait)}`, []),
   testimonials: () => getContent<Card[]>(`*[_type=='testimonial']|order(featured desc){_id,quote,name,relationship}`, demoTestimonials),
   facebook: () => getContent<{_id:string; title?:string; url:string; caption?:string; image?:unknown}[]>(`*[_type=='facebookPost' && featured==true]{_id,title,url,caption,'image':image}`, []),
 }
