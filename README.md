@@ -13,6 +13,21 @@ An English-first, CMS-managed education-centre website built with Next.js, Sanit
 
 Staff publish programmes, free resources, posts, videos, student work, team members, testimonials, and featured Facebook posts in `/studio`. Uploaded files and media live in Sanity’s asset library. Student work cannot be published unless guardian consent is marked approved.
 
+### Give a staff member access
+
+1. Open [Sanity Manage](https://www.sanity.io/manage), select the Candellar Education project, then open **Members**.
+2. Invite the staff member using their email address.
+3. On Sanity Free, use **Administrator** for trusted staff who need to edit content (the Free plan does not provide a restricted Editor role). Use **Viewer** for read-only access. Upgrade to Sanity Growth when you need editor-only permissions.
+4. They sign in at `https://YOUR-SITE/studio`, select a content type in the left sidebar, create or edit an item, then press **Publish**.
+
+### Everyday publishing checklist
+
+- **Site settings:** update homepage headline, contact details, and Facebook URL.
+- **Free resources:** upload the file, write a title/description, then publish.
+- **Blogs/videos:** add a title, cover image, summary, publish date, and slug.
+- **Student work:** obtain guardian approval first, then check **Guardian consent approved** before publishing.
+- **Parent enquiries:** open **Parent enquiries**, update the status from New to In progress or Closed, and follow up through the recorded email/phone.
+
 Parent enquiries are written to Sanity only when `SANITY_API_WRITE_TOKEN` is set, and are emailed only when the Resend variables are configured. The form remains safe to test without credentials.
 
 ## Facebook
