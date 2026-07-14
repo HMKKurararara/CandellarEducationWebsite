@@ -1,0 +1,6 @@
+import Link from 'next/link'
+import { Card } from '@/lib/content'
+import { urlFor } from '@/lib/sanity'
+export default function ContentIndex({title, intro, items, base}:{title:string;intro:string;items:Card[];base:string}) {
+  return <main><header className="border-b bg-white"><div className="shell flex min-h-16 items-center justify-between"><Link className="font-bold" href="/">CANDELLAR EDUCATION</Link><Link className="font-semibold text-blue-700" href="/">Home</Link></div></header><section className="section"><div className="shell"><p className="eyebrow">Candellar Education</p><h1 className="mt-2 text-4xl font-bold">{title}</h1><p className="mt-3 max-w-2xl text-slate-600">{intro}</p><div className="mt-10 grid grid-3">{items.map(item => <Link className="card" href={item.slug ? `${base}/${item.slug}` : base} key={item._id}>{Boolean(item.image) && <img src={urlFor(item.image) || ''} alt="" className="mb-4 h-40 w-full rounded-lg object-cover"/>}<h2 className="text-xl font-bold">{item.title}</h2>{item.category && <p className="mt-2 text-sm font-bold text-blue-700">{item.category}</p>}<p className="mt-2 text-slate-600">{item.description || item.excerpt || item.summary || item.role}</p></Link>)}</div></div></section></main>
+}
