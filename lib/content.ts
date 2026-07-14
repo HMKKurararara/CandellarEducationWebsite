@@ -23,5 +23,5 @@ export const content = {
   work: () => getContent<Card[]>(`*[_type=='studentWork' && guardianConsent==true]|order(featured desc){_id,title,'slug':slug.current,description,attribution,'image':media,guardianConsent}`, demoWork),
   team: () => getContent<Card[]>(`*[_type=='teamMember']|order(order asc){_id,'title':name,name,role,bio,'slug':slug.current,'image':portrait}`, demoTeam),
   testimonials: () => getContent<Card[]>(`*[_type=='testimonial']|order(featured desc){_id,quote,name,relationship}`, demoTestimonials),
-  facebook: () => getContent<{_id:string; title?:string; url:string; caption?:string}[]>(`*[_type=='facebookPost' && featured==true]{_id,title,url,caption}`, []),
+  facebook: () => getContent<{_id:string; title?:string; url:string; caption?:string; image?:unknown}[]>(`*[_type=='facebookPost' && featured==true]{_id,title,url,caption,'image':image}`, []),
 }
