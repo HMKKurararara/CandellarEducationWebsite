@@ -1,6 +1,6 @@
 import { getContent } from './sanity'
 
-export type Card = { _id:string; title?:string; slug?:string; summary?:string; description?:string; excerpt?:string; image?:unknown; url?:string; category?:string; attribution?:string; role?:string; name?:string; quote?:string; guardianConsent?:boolean }
+export type Card = { _id:string; title?:string; slug?:string; summary?:string; description?:string; excerpt?:string; seoTitle?:string; seoDescription?:string; image?:unknown; url?:string; category?:string; attribution?:string; role?:string; name?:string; quote?:string; guardianConsent?:boolean }
 type Settings = { title?:string; heroHeadline?:string; heroText?:string; admissionsEmail?:string; phone?:string; address?:string; facebookUrl?:string }
 export const demoProgrammes: Card[] = [
   {_id:'aeis',title:'AEIS & S-AEIS preparation',summary:'Focused academic preparation and practical guidance for Singapore school admissions.'},
