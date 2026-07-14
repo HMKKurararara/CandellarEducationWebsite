@@ -1,120 +1,26 @@
-# Candellar Website
+# Candellar Education
 
-A bilingual (English & Burmese) landing page for Candellar education services, built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion.
+An English-first, CMS-managed education-centre website built with Next.js, Sanity, and Tailwind CSS. The public site works with useful placeholder content until Sanity is connected.
 
-## Features
+## Local setup
 
-- 🌐 Bilingual support (English & Burmese)
-- 📱 Fully responsive design
-- ✨ Smooth animations with Framer Motion
-- 🎨 Modern UI with Tailwind CSS
-- 📝 Contact form with server actions
-- 🚀 Optimized for performance and SEO
+1. Install dependencies with `npm install`.
+2. Copy `.env.local.example` to `.env.local` and complete the values.
+3. Run `npm run dev`, then open `http://localhost:3000`.
+4. Open `http://localhost:3000/studio` to sign in to Sanity Studio. Create a Sanity project/dataset first, then invite staff as Editors or Administrators in Sanity Manage.
 
-## Tech Stack
+## Editorial workflow
 
-- **Framework**: Next.js 14 (App Router)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion
-- **i18n**: next-intl
-- **Icons**: Lucide React
-- **Fonts**: Inter (English), Noto Sans Myanmar (Burmese)
+Staff publish programmes, free resources, posts, videos, student work, team members, testimonials, and featured Facebook posts in `/studio`. Uploaded files and media live in Sanity’s asset library. Student work cannot be published unless guardian consent is marked approved.
 
-## Getting Started
+Parent enquiries are written to Sanity only when `SANITY_API_WRITE_TOKEN` is set, and are emailed only when the Resend variables are configured. The form remains safe to test without credentials.
 
-1. Install dependencies:
-```bash
-npm install
-```
+## Facebook
 
-2. Set up environment variables:
-```bash
-cp .env.local.example .env.local
-```
+Editors can always add featured Facebook post URLs. To activate the automatic latest-post feed, add a Meta Page ID and valid Page access token. The section automatically falls back to editor-curated posts when the API is unavailable.
 
-3. Run the development server:
-```bash
-npm run dev
-```
+## Checks and deployment
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+Run `npm run type-check` and `npm run build` before deploying to Vercel. Add every `.env.local.example` value as a Vercel environment variable. Configure the production URL in Sanity’s CORS settings if required by your project.
 
-## Deployment
-
-This project is ready for deployment on Vercel:
-
-1. Push your code to GitHub
-2. Connect your repository to Vercel
-3. Deploy with zero configuration
-
-## Configuration
-
-### Formspree Integration
-
-To enable form submissions, update the Formspree endpoint in the register form component:
-
-```typescript
-const formspreeResponse = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-  // ... rest of the configuration
-})
-```
-
-### Analytics
-
-Add your Plausible domain to track website analytics:
-
-```typescript
-// In your layout or analytics component
-const PLAUSIBLE_DOMAIN = process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN
-```
-
-## Project Structure
-
-```
-app/
-├── [locale]/
-│   ├── (site)/
-│   │   ├── components/     # Reusable components
-│   │   ├── page.tsx       # Home page
-│   │   └── layout.tsx     # Site layout
-│   ├── register/          # Registration page
-│   └── messages/          # Translation files
-├── api/                   # API routes
-├── globals.css           # Global styles
-└── layout.tsx            # Root layout
-
-lib/
-├── animations.ts         # Framer Motion variants
-├── i18n.ts              # i18n configuration
-└── utils.ts             # Utility functions
-```
-
-## Customization
-
-### Colors
-
-The color scheme can be customized in `tailwind.config.js`:
-
-```javascript
-theme: {
-  extend: {
-    colors: {
-      primary: '#1e3a8a',    // Indigo
-      accent: '#047857',     // Emerald
-    }
-  }
-}
-```
-
-### Fonts
-
-Fonts are configured in the root layout and can be changed by updating the Google Fonts imports.
-
-### Content
-
-All text content is managed through translation files in `app/[locale]/messages/`.
-
-## License
-
-© 2024 Candellar. All rights reserved.
+For a paste-ready checklist tailored to this project, see `.env.vercel.template`. Keep real credentials in Vercel only; do not commit them.

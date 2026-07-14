@@ -1,63 +1,12 @@
 import type { Metadata } from 'next'
-import { Inter, Playfair_Display, Noto_Sans_Myanmar } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ 
-  subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700', '800'],
-  variable: '--font-inter',
-  display: 'swap',
-})
-
-const playfair = Playfair_Display({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700', '800', '900'],
-  variable: '--font-playfair',
-  display: 'swap',
-})
-
-const notoSansMyanmar = Noto_Sans_Myanmar({ 
-  subsets: ['myanmar'],
-  weight: ['400', '500', '600', '700'],
-  variable: '--font-noto-myanmar',
-  display: 'swap',
-})
-
 export const metadata: Metadata = {
-  title: 'Candellar - Your Gateway to Singapore Education Success',
-  description: 'Affordable, high-quality tuition and exam preparation for AEIS, iPSLE, CEQ, and Cambridge pathways.',
-  keywords: 'Singapore education, AEIS, iPSLE, Cambridge English, tuition, Myanmar students',
-  authors: [{ name: 'Candellar' }],
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: 'any' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-    ],
-    shortcut: '/favicon.ico',
-    apple: '/transparent.png',
-  },
-  openGraph: {
-    title: 'Candellar - Your Gateway to Singapore Education Success',
-    description: 'Affordable, high-quality tuition and exam preparation for AEIS, iPSLE, CEQ, and Cambridge pathways.',
-    type: 'website',
-    locale: 'en_US',
-  },
+  title: { default: 'Candellar Education', template: '%s | Candellar Education' },
+  description: 'Clear education pathways, confident learners, and family-first guidance across Singapore and beyond.',
+  openGraph: { type: 'website', siteName: 'Candellar Education' },
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable} ${notoSansMyanmar.variable}`}>
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-      </head>
-      <body className="font-inter antialiased" style={{ scrollBehavior: 'smooth' }}>
-        {children}
-      </body>
-    </html>
-  )
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return <html lang="en"><body>{children}</body></html>
 }

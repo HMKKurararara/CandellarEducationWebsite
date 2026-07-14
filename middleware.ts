@@ -1,14 +1,9 @@
-import createMiddleware from 'next-intl/middleware';
+import { NextResponse } from 'next/server'
 
-export default createMiddleware({
-  // A list of all locales that are supported
-  locales: ['en', 'my'],
+// The public site is English-first. Locale-aware fields are retained in Sanity
+// so additional languages can be introduced without changing routes later.
+export function middleware() {
+  return NextResponse.next()
+}
 
-  // Used when no locale matches
-  defaultLocale: 'en'
-});
-
-export const config = {
-  // Match only internationalized pathnames
-  matcher: ['/', '/(my|en)/:path*']
-};
+export const config = { matcher: ['/((?!_next|favicon.ico).*)'] }
